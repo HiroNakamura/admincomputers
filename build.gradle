@@ -1,0 +1,72 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
+
+
+version = '1.0.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+mainClassName = "com.codemonkey.ProyectoApplication"
+description ="""
+Ejemplo de proyecto hecho con Gradle build
+ 
+"""
+
+jar {
+
+	baseName='principal'
+
+	manifest{
+		attributes 'Main-Class': 'com.codemonkey.ProyectoApplication'
+	}
+}
+
+group = 'com.codemonkey'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	providedRuntime
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('org.postgresql:postgresql')
+	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+	testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.18.2'
+	compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.3.Final'
+	compile group: 'javax.validation', name: 'validation-api', version: '2.0.0.Final'
+}
+
+configurations.all {
+    resolutionStrategy.cacheDynamicVersionsFor 10, 'minutes'
+}
+
+project.configurations.compile.resolvedConfiguration.resolvedArtifacts.each {
+ println '   [Dependencias] '
+ println 'artifact: '+it.name
+ println 'referencia: '+it.file
+ println '**************************'
+}
