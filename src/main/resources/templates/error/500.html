@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <head>
+  <meta charset="utf-8"/> 
+  <title>500</title>
+  <style type="text/css">
+  	p.color{
+  		font-size: 322px; 
+      position: relative; 
+      top: -1033px; 
+      left: 546px; 
+      color: #C8FE2E;
+  	}
+
+  	p.sombra{
+  		font-size: 322px; 
+      position: relative; 
+      top: -333px; 
+      left: 555px; 
+      color: #000000;
+  	}
+
+  	#error{
+  		position: relative; 
+      top: -1358px; 
+      left: 297px; 
+      font-size: 40px; 
+      font-family: Courier;
+  	}
+
+  	body{
+  		background-color: #088A08;
+  		/*quitar scroll*/
+  		height: 100%;
+  		overflow: hidden;
+    }
+    
+    #regreso{
+      position: relative;
+      top: -1352px;
+      left: 50%;
+    }
+
+    #regreso a{
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      color:white;
+      font-size: 30px;
+      text-decoration: none;
+    }
+
+  </style>
+  </head>
+  <body>
+  <p class="sombra">500</p>
+  <p class="color">500</p>
+ 
+  <span id="error">Error, el servidor ha tenido un problema.</span>
+  <div id="regreso"><a th:href="@{/home}"> >>Regresar al home</a></div>
+  </body>
+  </html>
