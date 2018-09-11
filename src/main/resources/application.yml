@@ -1,0 +1,46 @@
+#MENSAJES
+aplicacion:
+    home: Bienvenidos al sistema
+    usuarios: Usuarios
+    computadoras: Computadoras
+    departamentos: Departamentos
+    detalle: Detalle computadora
+
+#BANNER
+banner:
+   charset: UTF-8
+   location: banner.txt
+
+spring:
+   thymeleaf.cache: false
+   thymeleaf.check-template: true
+   thymeleaf.check-template-location: true
+   thymeleaf.content-type: text/html
+   thymeleaf.enabled: true
+   thymeleaf.encoding: UTF-8
+   thymeleaf.suffix: .html
+   jpa.generate-ddl: true
+   jpa.show-sql: true
+   jpa.hibernate.ddl-auto: update
+   jpa.hibernate.naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+   jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
+   datasource.driverClassName: org.postgresql.Driver
+   datasource.url: jdbc:postgresql://localhost:5432/sistema
+   datasource.username: postgres
+   datasource.password: 5432
+   servlet.multipart.max-file-size: 128KB
+   servlet.multipart.max-request-size: 128KB
+   http.multipart.enabled: false
+
+
+#MySQL
+#spring:
+#  datasource.url: jdbc:mysql://localhost:3306/ejemplo?useSSL=false
+#  datasource.driver-class-name: com.mysql.jdbc.Driver
+#  datasource.username: root
+#  datasource.password: root
+#  jpa.generate-ddl: true
+#  jpa.show-sql: true
+#  jpa.hibernate.ddl-auto: update
+#  jpa.hibernate.naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+#  jpa.database-platform: org.hibernate.dialect.MySQL5Dialect
