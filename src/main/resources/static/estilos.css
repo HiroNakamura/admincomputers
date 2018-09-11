@@ -1,0 +1,404 @@
+
+#header{
+	background-color: #334;
+	color: #CCCCCC;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	font-family: Helvetica;
+	font-size: 23px;
+}
+
+
+#header a {
+    color: #D8D8FF;
+    text-decoration: none;
+    /*font-family: 'Lobster', cursive;*/
+    font-family: 'Lobster';
+}
+
+#footer{
+	background-color: #334;
+	color: #CCCCCC;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+/*Departamentos*/
+#tablaDepartamento {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tablaDepartamento td, #tablaDepartamento th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tablaDepartamento tr:nth-child(even){background-color: #d8d8ff;}
+
+#tablaDepartamento tr:hover {background-color: #A9F5E1;}
+
+#tablaDepartamento th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #38006f;
+    color: white;
+}
+/*Usuarios*/
+#tablaUsuario {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tablaUsuario td, #tablaUsuario th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tablaUsuario tr:nth-child(even){background-color: #d8d8ff;}
+
+#tablaUsuario tr:hover {background-color: #A9F5E1;}
+
+#tablaUsuario th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #38006f;
+    color: white;
+}
+
+#tablaUsuario td{
+    width: 30px;
+    text-align: center;
+}
+
+#tablaUsuario label {
+    position: relative;
+    top: 0px; 
+    /*left: 10px;*/
+    font-weight: bold;
+    /*text-align: center;*/
+}
+
+/*Computadoras*/
+#tablaComputadora {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tablaComputadora td, #tablaComputadora th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tablaComputadora tr:nth-child(even){background-color: #d8d8ff;}
+
+#tablaComputadora tr:hover {background-color: #A9F5E1;}
+
+#tablaComputadora th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #38006f;
+    color: white;
+}
+
+#tablaComputadora td{
+    text-align: center;
+}
+
+#nuevo{
+    background-color: #334;
+}
+
+#nuevo a{
+    color:#82FA58;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#eliminar{
+    background-color: #334;
+}
+
+#eliminar a{
+    color: red;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#editar{
+    background-color: #334;
+}
+
+#editar a{
+    color:#bada55 ;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+#detalle{
+    color: #8000FF;
+    /*text-decoration: none;*/
+}
+
+.actualizada{
+    color: green;
+    font-weight: bold;
+}
+
+.noactualizada{
+    color: red;
+    font-weight: bold;
+}
+
+body{
+    font-size: 12px;
+}
+
+h1{
+    font-family: 'Lobster';
+}
+
+#regreso{
+    text-decoration: none;
+    color:#FE9A2E;
+    background-color: black;;
+}
+
+/*Para el tooltip*/
+.tooltip-inner {
+    background-color: #00acd6 !important;
+    color: #fff;
+  }
+  
+  .tooltip.top .tooltip-arrow {
+    border-top-color: #00acd6;
+  }
+  
+  .tooltip.right .tooltip-arrow {
+    border-right-color: #00acd6;
+  }
+  
+  .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #00acd6;
+  }
+  
+  .tooltip.left .tooltip-arrow {
+    border-left-color: #00acd6;
+  }
+
+/*Fondo computadoras*/
+#fondoCompu{
+    background-image: url('../img/areas/comp.jpg');
+    background-repeat: repeat-y;
+    background-size: 371px;
+}
+  
+/*Fondo usuarios*/
+#fondoUser{
+    background-image: url(../img/areas/user.jpg); 
+    background-repeat: repeat-y; 
+    background-size: 371px;
+}
+
+/*Fondo departamentos*/
+#fondoDep{
+    background-image: url(../img/areas/dep.jpg); 
+    background-repeat: repeat-y; 
+    background-size: 371px;
+}
+
+#imguser{
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.paginador{
+    position: relative;
+    top: 12px;
+    left: 50%;
+}
+
+
+/*Organigrama*/
+.organigrama * {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .organigrama ul {
+    padding-top: 20px;
+    position: relative;
+  }
+  
+  .organigrama li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    padding: 20px 5px 0px 5px;
+    position: relative;
+  }
+  
+  .organigrama li::before,
+  .organigrama li::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 50%;
+    border-top: 1px solid #27629b;
+    width: 50%;
+    height: 20px;
+  }
+  
+  .organigrama li::after {
+    right: auto;
+    left: 50%;
+    border-left: 1px solid #27629b;
+  }
+  
+  .organigrama li:only-child::before,
+  .organigrama li:only-child::after {
+    display: none;
+  }
+  
+  .organigrama li:only-child {
+    padding-top: 0;
+  }
+  
+  .organigrama li:first-child::before,
+  .organigrama li:last-child::after {
+    border: 0 none;
+  }
+  
+  .organigrama li:last-child::before {
+    border-right: 1px solid #27629b;
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+    border-radius: 0 5px 0 0;
+  }
+  
+  .organigrama li:first-child::after {
+    border-radius: 5px 0 0 0;
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+  }
+  
+  .organigrama ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 1px solid #27629b;
+    width: 0;
+    height: 20px;
+  }
+  
+  .organigrama li a {
+    border: 1px solid #27629b;
+    padding: 1em 0.75em;
+    text-decoration: none;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-family: arial, verdana, tahoma;
+    font-size: 0.85em;
+    display: inline-block;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    transition: all 500ms;
+  }
+  
+  .organigrama li a:hover {
+    border: 1px solid #fff;
+    color: #ddd;
+    background-color: rgba(39, 98, 155, 0.7);
+    display: inline-block;
+  }
+  
+  .organigrama>ul>li>a {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  
+  .organigrama>ul>li>ul>li>a {
+    width: 15%;
+  }
+  
+  .organigrama li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    padding: 20px 5px 0px 5px;
+    position: relative;
+  }
+
+  #centrar{
+    position: relative;
+    top: -42px;
+    left: 30%;
+  }
+
+
+#busqueda{
+    background-color: #334;
+    color:#EDEFEE;
+    height: 100px;
+    /*visibility: hidden;*/
+}
+
+#busquedaComp{
+    background-color: #334;
+    color:#EDEFEE;
+    height: 98px;
+    /*visibility: hidden;*/
+}
+
+#busqByNom{
+   /*position: relative;
+    top: -38px;
+    left: 380px;*/
+}
+
+#busqByUser{
+    position: relative;
+    top: -38px;
+    left: 380px;
+}
+
+#busqByBien{
+    position: relative;
+    top: -76px;
+    left: 745px;
+}
+
+#busqByArrendado{
+    position: relative;
+    top: -62px;
+    left: 0px;
+}
+
+#busqByIp{
+    position: relative;
+    top: -76px;
+    left: 843px;
+}
+
+  
