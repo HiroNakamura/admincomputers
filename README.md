@@ -1,2 +1,2 @@
 # admincomputers
-Sistema de administración de computadoras
+Sistema de administración de computadoras hecho con Spring + PostgreSQL + Thymeleaf.
