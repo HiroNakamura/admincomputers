@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Usuarios</title>
+    <th:block th:include="layout/header"></th:block>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Usuarios -Registro</h1>
+      </div>
+<div id="form">
+<form class="form-inline" method="post" th:action="@{/agregarUsuario}" th:object="${user}" action="/agregarUsuario">
+<span>Nombre:</span>
+<input type="text" id="nombre" name="nombre" th:value="*{nombre}" /><br/>
+<span>Apellidos:</span>
+<input type="text" id="apellidos" name="apellidos" th:value="*{apellidos}" /><br/>
+<span>Usuario:</span>
+<input type="text" id="usuario" name="usuario" th:value="*{usuario}" /><br/>
+<span>Password:</span>
+<input type="text" id="password" name="password" th:value="*{password}" /><br/>
+<span>Cargo:</span>
+<select name="cargo">
+    <option th:each="mapC : ${cargosMap}"
+    th:value="${mapC.value}" th:text="${mapC.key}"/>
+  </select><br/>
+<!--<input type="text" id="cargo" name="cargo" th:value="*{cargo}" /><br/>-->
+<span>Departamento:</span>
+<select name="departamento">
+    <option th:each="Item : ${departamentosSelect}"
+      th:value="${Item.iddepartamento}" 
+      th:text="${Item.nombre}"/>
+  </select><br/>
+<!--<input type="text" id="iddepartamento" name="iddepartamento" th:value="*{iddepartamento}" />-->
+<span>Computadora</span>
+<select name="computadora">
+    <option th:each="map : ${computadorasSelect}"
+    th:value="${map.idcomputadora}" th:text="${map.bien}"/>
+  </select><br/>
+<!--<input type="text" id="actualizada" name="actualizada" th:value="*{actualizada}" />-->
+<input type="submit" value="Agregar" class="btn btn-primary"/>
+</form>
+</div>
+<br/>
+
+<div th:if="${!users.isEmpty()}">
+    <table class="table table-dark table-hover" align="center" border="0" dt:table="true">
+          <thead>
+              <tr>
+                  <th>Nombre</th>
+                  <th>Apellidos</th>
+                  <th>Usuario</th>
+                  <th>Password</th>
+                  <th>Cargo</th>
+                  <th>Departamento</th>
+                  <th>Computadora</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="user : ${users}">
+                  <td th:text="${user?.nombre}"></td>
+                  <td th:text="${user?.apellidos}"></td>
+                  <td th:text="${user?.usuario}"></td>
+                  <td th:text="${user?.password}"></td>
+                  <td th:text="${user?.cargo}"></td>
+                  <td th:text="${user?.departamento}"></td>
+                  <td th:text="${user?.computadora}"></td>
+              </tr>
+          </tbody>
+      </table>
+     </div>
+<div th:include="layout/footer"></div>
+</body>
+</html>

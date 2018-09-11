@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Detalle computadora</title>
+        <th:block th:include="layout/header"></th:block>
+        <script type="text/javascript" src="/js/funciones.js"></script>
+        <link rel="stylesheet" type="text/css" media="all" href="css/estilos.css" th:href="@{css/estilos.css}" />
+    </head>
+    <body>
+
+<div class="jumbotron text-center" id="fondoCompu">
+  <h1 th:text="${detalle}"></h1> 
+</div>
+<div> <!-- id="tablaComputadora" -->
+            <table  class="table table-dark table-hover" align="center" border="0" dt:table="true">
+              <tr>
+                <th>Número</th>
+                <th>Bien</th>
+                <th>Arrendado</th>
+                <th>Asignado</th>
+                <th>Ip</th>
+                <th>Dns</th>
+                <th>Red</th>
+                <th>Máquina</th>
+                <th>Operativo</th>
+                <th>Tipo</th>
+                <th>Modelo</th>
+                <th>Dominio</th>
+                <th>Ubicacion</th>
+                <th>Departamento</th>
+                <th>Nota</th>
+                <th></th>
+              </tr>
+              <tr>
+                <td th:text="${computadora.idcomputadora}"></td>
+                <td th:text="${computadora.bien}"></td>
+                <td th:text="${computadora.arrendado}"></td>
+                <td th:text="${computadora.asignado}"></td>
+                <td th:text="${computadora.ip}"></td>
+                <td th:text="${computadora.dns}"></td>
+                <td th:text="${computadora.red}"></td>
+                <td th:text="${computadora.maquina}"></td>
+                <td th:text="${computadora.operativo}"></td>
+                <td th:text="${computadora.tipo}"></td>
+                <td th:text="${computadora.modelo}"></td>
+                <td th:text="${computadora.dominio}"></td>
+                <td th:text="${computadora.ubicacion}"></td>
+                <td th:text="${computadora.departamento.nombre}"></td>
+                <td th:text="${computadora.actualizada==true?'ACTUALIZADA' : 'NO ACTUALIZADA'}" th:class="${computadora.actualizada==true? 'actualizada' : 'noactualizada'}" ></td>
+
+                <td>
+                  <a href="#" onclick="return editar()" th:href="@{/updateComputadora?idcomputadora=__${computadora.idcomputadora}__}">
+                    <button type="button" class="btn btn-warning">Editar</button></a>
+              </td>
+
+              </tr>
+            </table>
+            <script>
+                function editar(){
+                 let entrada = false;
+                 let seguro = confirm("Seguro quieres editar registro?");
+                 let clave = ''
+                 if(seguro == true){
+                    clave = prompt("Escribe la clave:");
+                    if(clave == 'fer543'){
+                       entrada = true;
+                    }
+                 }
+                 return entrada;
+                }
+       </script>
+        
+</div>
+
+
+<div>
+    <a id="regreso" th:href="@{/usuarios}">Regresar</a>
+</div>
+    <div th:include="layout/footer"></div>
+</body>
+</html>

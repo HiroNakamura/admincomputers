@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Computadoras</title>
+        <th:block th:include="layout/header"></th:block>
+        <script type="text/javascript" src="/js/funciones.js"></script>
+        <link rel="stylesheet" type="text/css" media="all" href="css/estilos.css" th:href="@{css/estilos.css}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="jumbotron text-center" id="fondoCompu">
+            <h1 th:text="${computerss}"></h1>
+            <p class="text-primary">No. de computadoras registradas:<span th:text="${computers.size()}"></span></p>
+          </div>
+        <div id="nuevo">
+            <a th:href="@{/computadorasModel}" data-toggle="tooltip" title="Nuevo registro">Nuevo registro</a>
+            <a href="#" th:href="@{/excelcomp}" data-toggle="tooltip" title="Exportar a excel">Excel</a> 
+            <a href="#" th:href="@{/htmlcomp}" data-toggle="tooltip" title="Exportar a html">HTML</a> 
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();   
+            });
+            </script>        
+<div>
+    <div th:if="${!computers.isEmpty()}"><!-- id="tablaComputadora" -->
+  <table class="table table-dark table-hover" align="center" border="0" dt:table="true">
+        <thead >
+            <tr>
+                <th>No. bien</th>
+                <th>No. arrendamiento</th>
+                <th>No. asignado</th>
+                <th>Ip</th>
+                <th>Dns</th>
+                <th>Red</th>
+                <th>Sist. operativo</th>
+                <th>M&aacute;quina</th>
+                <th>Tipo</th>
+                <th>Modelo</th>
+                <th>Dominio</th>
+                <th>Administrador</th>
+                <th>Ubicacion</th>
+                <th>&Aacute;rea</th>
+                <th>Actualizada</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="computer : ${computers}" id="actualizada">
+                <td th:text="${computer?.bien}"></td>
+                <td th:text="${computer?.arrendado}"></td>
+                <td th:text="${computer?.asignado}"></td>
+                <td th:text="${computer?.ip}"></td>
+                <td th:text="${computer?.dns}"></td>
+                <td th:text="${computer?.red}"></td>
+                <td th:text="${computer?.operativo}"></td>
+                <td th:text="${computer?.maquina}"></td>
+                <td th:text="${computer?.tipo}"></td>
+                <td th:text="${computer?.modelo}"></td>
+                <td th:text="${computer?.dominio}"></td>
+                <td th:text="${computer?.administrador}"></td>
+                <td th:text="${computer?.ubicacion}"></td>
+                <td th:text="${computer?.departamento.nombre}"></td>
+                <td th:text="${computer?.actualizada==true?'ACTUALIZADA' : 'NO ACTUALIZADA'}" th:class="${computer?.actualizada==true? 'actualizada' : 'noactualizada'}" ></td>
+                <td>
+                    <a href="#" onclick="return confirm('Estas seguro editar registro?')" th:href="@{/updateComputadora?idcomputadora=__${computer?.idcomputadora}__}">
+                        <button type="button" class="btn btn-warning">Editar</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" onclick="return confirm('Estas seguro eliminar registro?')" th:href="@{/eliminarComputadora?idcomputadora=__${computer.idcomputadora}__}">
+                        <button type="button" class="btn btn-danger">Eliminar</button>
+                    </a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+   </div>
+</div>
+<div th:include="layout/footer"></div>
+</body>
+</html>

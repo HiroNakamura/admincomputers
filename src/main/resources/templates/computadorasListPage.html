@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Computadoras</title>
+        <th:block th:include="layout/header"></th:block>
+        <script type="text/javascript" src="/js/funciones.js"></script>
+        <link rel="stylesheet" type="text/css" media="all" href="css/estilos.css" th:href="@{css/estilos.css}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="jumbotron text-center" id="fondoCompu">
+            <h1 th:text="${computerss}"></h1>
+            <p class="text-primary">
+                Computadoras registradas: <span th:text="${total.size()}">. </span>
+                Computadoras propias: <span th:text="${noarrendadas.size()}">. </span>
+                Computadoras arrendadas: <span th:text="${arrendadas.size()}">. </span>
+            </p>
+          </div>
+
+          <div id="busquedaComp">
+            <div id="busqByNom" >
+            <form method="get" th:action="@{/hallarComputadoraByBien}" th:object="${computadora}" action="/hallarComputadoraByBien">
+            <label>Buscar por bien:</label> 
+            <input type="text" id="bien" name="bien" th:value="*{bien}" /> 
+            <input type="submit" value="Buscar" class="btn btn-light"/></form>       
+            </div>
+            <div id="busqByUser" >
+            <form method="get" th:action="@{/hallarComputadoraByArrendado}" th:object="${computadora}" action="/hallarComputadoraByArrendado">
+            <label>Buscar por número de arrendamiento:</label> 
+            <input type="text"  id="arrendado" name="arrendado" th:value="*{arrendado}"  />
+            <input type="submit" value="Buscar" class="btn btn-light"/></form>
+            </div>
+            
+            <div id="busqByIp" >
+            <form method="get" th:action="@{/hallarComputadoraByIp}" th:object="${computadora}" action="/hallarComputadoraByIp">    
+            <label>Buscar por IP :</label> 
+            <input type="text" id="ip" name="ip" th:value="*{ip}"/>
+            <input type="submit" value="Buscar" class="btn btn-light"/>
+            </form>
+            </div>
+            
+            
+            
+            
+            </div>
+
+
+        <div id="nuevo">
+            <a th:href="@{/computadorasModel}" data-toggle="tooltip" title="Nuevo registro">Nuevo registro</a>
+            <a href="#" th:href="@{/excelcomp}" data-toggle="tooltip" title="Exportar a excel">Excel</a> 
+            <a href="#" th:href="@{/htmlcomp}" data-toggle="tooltip" title="Exportar a html">HTML</a> 
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();   
+            });
+            </script>        
+<div>
+    <div ><!-- id="tablaComputadora" th:if="${!computers.isEmpty()}" -->
+  <table class="table table-dark table-hover" align="center" border="0" dt:table="true">
+        <thead >
+            <tr>
+                <th>No. bien</th>
+                <th>No. arrendamiento</th>
+                <th>No. asignado</th>
+                <th>Ip</th>
+                <th>Dns</th>
+                <th>Red</th>
+                <th>Sist. operativo</th>
+                <th>M&aacute;quina</th>
+                <th>Tipo</th>
+                <th>Modelo</th>
+                <th>Dominio</th>
+                <th>Administrador</th>
+                <th>Ubicacion</th>
+                <th>&Aacute;rea</th>
+                <th>Actualizada</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="computer : ${computers}" id="actualizada">
+                <td th:text="${computer?.bien}"></td>
+                <td th:text="${computer?.arrendado}"></td>
+                <td th:text="${computer?.asignado}"></td>
+                <td th:text="${computer?.ip}"></td>
+                <td th:text="${computer?.dns}"></td>
+                <td th:text="${computer?.red}"></td>
+                <td th:text="${computer?.operativo}"></td>
+                <td th:text="${computer?.maquina}"></td>
+                <td th:text="${computer?.tipo}"></td>
+                <td th:text="${computer?.modelo}"></td>
+                <td th:text="${computer?.dominio}"></td>
+                <td th:text="${computer?.administrador}"></td>
+                <td th:text="${computer?.ubicacion}"></td>
+                <td th:text="${computer?.departamento.nombre}"></td>
+                <td th:text="${computer?.actualizada==true?'ACTUALIZADA' : 'NO ACTUALIZADA'}" th:class="${computer?.actualizada==true? 'actualizada' : 'noactualizada'}" ></td>
+                <td>
+                    <a href="#" onclick="return editar()" th:href="@{/updateComputadora?idcomputadora=__${computer?.idcomputadora}__}">
+                        <button type="button" class="btn btn-warning">Editar</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" onclick="return eliminar()" th:href="@{/eliminarComputadora?idcomputadora=__${computer.idcomputadora}__}">
+                        <button type="button" class="btn btn-danger">Eliminar</button>
+                    </a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+    
+                function editar(){
+                 let entrada = false;
+                 let seguro = confirm("Seguro quieres editar registro?");
+                 let clave = ''
+                 if(seguro == true){
+                    clave = prompt("Escribe la clave:");
+                    if(clave == 'fer543'){
+                       entrada = true;
+                    }
+                 }
+                 return entrada;
+                }
+    
+    
+                function eliminar(){
+                 let entrada = false;
+                 let seguro = confirm("Seguro quieres eliminar registro?");
+                 let clave = ''
+                 if(seguro == true){
+                    clave = prompt("Escribe la clave:");
+                    if(clave == 'fer543'){
+                       entrada = true;
+                    }
+                 }
+                 return entrada;
+                }
+       </script>
+
+    <!-- Paginacion-->
+
+<div class="paginador">
+        <div class="form-group col-md-1">
+            <select style="position: realtive; top: 23px; left: 50%; width: 55px;" class="form-control pagination"  id="pageSizeSelect">
+                <option th:each="pageSize : ${pageSizes}" th:text="${pageSize}"
+                    th:value="${pageSize}"
+                    th:selected="${pageSize} == ${selectedPageSize}"></option>
+            </select>
+        </div>                               <!--class="form-group col-md-11 pagination-centered"-->
+        <div th:if="${computers.totalPages != 1}"  class="form-group mb-2" style="font-size: 27px; position: relative; top: -56px; left: 120px;">
+            <ul class="pagination">
+                <li th:class="${computers.number == 0} ? disabled">
+                    <a class="pageLink" id="AQUI"
+                    th:href="@{/computadoras(pageSize=${selectedPageSize}, page=1)}">«</a>
+                </li>
+                <li th:class="${computers.number == 0} ? disabled"><a
+                    class="pageLink"
+                    th:href="@{/computadoras(pageSize=${selectedPageSize}, page=${computers.number})}">←</a>
+                </li>
+                <li
+                    th:class="${computers.number == (page - 1)} ? 'active pointer-disabled'"
+                    th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
+                    <a class="pageLink"
+                    th:href="@{/computadoras(pageSize=${selectedPageSize}, page=${page})}"
+                    th:text="${page}"></a>
+                </li>
+                <li
+                    th:class="${computers.number + 1 == computers.totalPages} ? disabled">
+                    <a class="pageLink"
+                    th:href="@{/computadoras(pageSize=${selectedPageSize}, page=${computers.number + 2})}">→</a>
+                </li>
+                <li
+                    th:class="${computers.number + 1 == computers.totalPages} ? disabled">
+                    <a class="pageLink"
+                    th:href="@{/computadoras(pageSize=${selectedPageSize}, page=${computers.totalPages})}">»</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Paginacion-->
+
+
+
+   </div>
+</div>
+
+<script th:inline="javascript">
+        /*<![CDATA[*/
+        $(document).ready(function() {
+            changePageAndSize();
+        });
+        
+        function changePageAndSize() {
+            $('#pageSizeSelect').change(function(evt) {
+                window.location.replace("/computadoras?pageSize=" + this.value + "&page=1");
+            });
+        }
+        /*]]>*/
+    </script>
+
+<div th:include="layout/footer"></div>
+</body>
+</html>

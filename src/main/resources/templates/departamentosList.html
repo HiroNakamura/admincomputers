@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Departamentos</title>
+        <th:block th:include="layout/header"></th:block>
+        <link rel="stylesheet" type="text/css" media="all" href="css/estilos.css" th:href="@{css/estilos.css}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+    </head>
+    <body>
+        <div class="jumbotron text-center" id="fondoDep">
+            <h1 th:text="${deptos}"></h1>
+            <p class="text-primary">No. de &aacute;reas registradas:<span th:text="${departs.size()}"></span></p>
+          </div>
+
+<!-- Organigrama-->
+<div id="centrar">
+        <div id="organigrama" name="organigrama" class="organigrama">
+                <ul id="ul1" name="ul1">
+                  <li>
+                    <a href="#"><label>Direcci&oacute;n general Redalyc<br/>Dr. Eduardo Aguado L&oacute;pez</label></a>
+                    <ul>
+                      <li>
+                        <a href="#"><label>Sistemas de informaci&oacute;n Redalyc<br/>Dra. Arianna Becerril</label></a>
+                        <ul>
+                          <li>
+                            <a href="#"><label>Recursos humanos<br/>Marisol Carbajal</label></a>
+                          </li>
+                          <li>
+                            <a href="#"><label>Diseño y comunicaci&oacute;n<br/>Vanesa Itzel</label></a>
+                          </li>
+                          <li>
+                            <a href="#"><label>Evaluaci&oacute;n<br/>Diana Amor Becerril</label></a>
+                          </li>
+                          <li>
+                                <a href="#"><label>Investigaci&oacute;n<br/>Fernando Rodriguez</label></a>
+                              </li>
+              <li>
+                                <a href="#"><label>Hemeroteca<br/>Haide Amor Becerril</label></a>
+                              </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+</div>
+
+
+<!-- Organigrama-->
+
+    
+<div>
+    <div th:if="${!departs.isEmpty()}">
+  <table  class="table table-dark table-hover" align="center" border="0" dt:table="true">
+        <thead >
+            <tr>
+                <th>Nombre</th>
+                <th>Responsable</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="depart : ${departs}">
+                <td th:text="${depart?.nombre}"></td>
+                <td th:text="${depart?.responsable}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+   </div>
+<div th:include="layout/footer"></div>
+</body>
+</html>

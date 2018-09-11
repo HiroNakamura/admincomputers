@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Actualizar computadora</title>
+        <th:block th:include="layout/header"></th:block>
+        <script type="text/javascript" src="/js/funciones.js"></script>
+        <link rel="stylesheet" type="text/css" media="all" href="css/estilos.css" th:href="@{css/estilos.css}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+<div class="jumbotron text-center" id="fondoCompu">
+  <h1>Computadoras -Actualizar</h1>
+</div>
+<div>
+            <table class="table table-dark table-hover" align="center" border="0" dt:table="true">
+              <tr>
+                <th>Número</th>
+                <th>No. bien</th>
+                <th>No. arrendamiento</th>
+                <th>No. asignado</th>
+                <th>Ip</th>
+                <th>Dns</th>
+                <th>Red</th>
+                <th>Sist. operativo</th>
+                <th>M&aacute;quina</th>
+                <th>Tipo</th>
+                <th>Modelo</th>
+                <th>Dominio</th>
+                <th>Administrador</th>
+                <th>Ubicacion</th>
+                <th>&Aacute;rea</th>
+                <th>Actualizada</th>
+              </tr>
+              <tr>
+                <td th:text="${computadorax.idcomputadora}"></td>
+                <td th:text="${computadorax.bien}"></td>
+                <td th:text="${computadorax.arrendado}"></td>
+                <td th:text="${computadorax.asignado}"></td>
+                <td th:text="${computadorax.ip}"></td>
+                <td th:text="${computadorax.dns}"></td>
+                <td th:text="${computadorax.red}"></td>
+                <td th:text="${computadorax.operativo}"></td>
+                <td th:text="${computadorax.maquina}"></td>
+                <td th:text="${computadorax.tipo}"></td>
+                <td th:text="${computadorax.modelo}"></td>
+                <td th:text="${computadorax.dominio}"></td>
+                <td th:text="${computadorax.administrador}"></td>
+                <td th:text="${computadorax.ubicacion}"></td>
+                <td th:text="${computadorax.departamento.nombre}"></td>
+                <td th:text="${computadorax.actualizada==true?'ACTUALIZADA' : 'NO ACTUALIZADA'}" th:class="${computadorax.actualizada==true? 'actualizada' : 'noactualizada'}" ></td>
+              </tr>
+            </table>
+</div>
+<div id="form">
+<form class="form-inline" method="post" th:action="@{/actualizarComputadora}" th:object="${computadorax}" action="/actualizarComputadora">
+<span>Id:</span>
+<select name="idcomputadora">
+    <option th:each="Item : ${computadorasSelect}"
+      th:value="${Item.idcomputadora}" 
+      th:text="${Item.idcomputadora+' '+ Item.bien +' '+ Item.arrendado +' '+Item.asignado}"/>
+  </select><br/>
+  <span>No. bien:</span>
+  <input type="text" id="bien" name="bien" th:value="*{bien}" /><br/>
+  <span>No. arrendamiento:</span>
+  <input type="text" id="arrendado" name="arrendado" th:value="*{arrendado}" /><br/>
+  <span>No. asignado:</span>
+  <input type="text" id="asignado" name="asignado" th:value="*{asignado}" /><br/>
+  <span>IP:</span>
+  <input type="text" id="ip" name="ip" th:value="*{ip}" /><br/>
+  <span>DNS:</span>
+  <input type="text" id="dns" name="dns" th:value="*{dns}" /><br/>
+  <span>Red:</span>
+  <input type="text" id="red" name="red" th:value="*{red}" /><br/>
+  <span>Sistema operativo:</span>
+  <select name="operativo">
+      <option th:each="mapSis : ${mapSistema}"
+      th:value="${mapSis.value}" th:text="${mapSis.key}"/>
+    </select><br/>
+  <!--<input type="text" id="operativo" name="operativo" th:value="*{operativo}" /><br/>-->
+  <span>Máquina:</span>
+  <input type="text" id="maquina" name="maquina" th:value="*{maquina}" /><br/>
+  <span>Tipo:</span>
+  <select name="tipo">
+      <option th:each="mapT : ${tipoMap}"
+      th:value="${mapT.value}" th:text="${mapT.key}"/>
+    </select><br/>
+  <!--<input type="text" id="tipo" name="tipo" th:value="*{tipo}" /><br/>-->
+  <span>Modelo:</span>
+  <input type="text" id="modelo" name="modelo" th:value="*{modelo}" /><br/>
+  <span>Dominio:</span>
+  <input type="text" id="dominio" name="dominio" th:value="*{dominio}" /><br/>
+  <span>Administrador:</span>
+  <input type="text" id="administrador" name="administrador" th:value="*{administrador}" /><br/>
+  <span>Departamento:</span>
+  <select name="departamento">
+      <option th:each="Item : ${departamentosSelect}"
+        th:value="${Item.iddepartamento}" 
+        th:text="${Item.nombre}"/>
+    </select><br/>
+  <!--<input type="text" id="iddepartamento" name="iddepartamento" th:value="*{iddepartamento}" />-->
+  <span>Ubicaci&oacute;n:</span>
+  <input type="text" id="ubicacion" name="ubicacion" th:value="*{ubicacion}" /><br/>
+  <span>Actualizada</span>
+  <select name="actualizada">
+      <option th:each="map : ${actualizarMap}"
+      th:value="${map.value}" th:text="${map.key}"/>
+    </select><br/>
+<!--<input type="text" id="actualizada" name="actualizada" th:value="*{actualizada}" />-->
+<input type="submit" value="Modificar" class="btn btn-warning"/>
+</form>
+</div><br/>
+<div>
+    <a id="regreso" th:href="@{/computadoras}">Regresar</a>
+</div>
+    <div th:include="layout/footer"></div>
+</body>
+</html>
