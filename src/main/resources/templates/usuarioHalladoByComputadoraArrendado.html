@@ -27,6 +27,8 @@
                         <th>Cargo</th>
                         <th>Departamento</th>
                         <th>Computadora</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,11 +50,61 @@
         
                                 </a>
                         </td>
-                        
+                        <td>
+                            <a href="#" onclick="return editar()" th:href="@{/updateUsuario?idusuario=__${user.idusuario}__}"
+                            ><button type="button" class="btn btn-warning" id="btnEditar">Editar</button></a>
+                        </td>
+                        <td>
+                            <a href="#" onclick="return eliminar()" th:href="@{/eliminarUsuario?idusuario=__${user.idusuario}__}">
+                                <button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button>
+                            </a>
+                        </td>
                        
                     </tr>
                 </tbody>
             </table>
+            <script>
+                function subir(){
+                     let entrada = false;
+                     let seguro = confirm("Seguro quieres subir una imagen?");
+                     let clave = ''
+                     if(seguro == true){
+                        clave = prompt("Escribe la clave:");
+                        if(clave == 'fer543'){
+                           entrada = true;
+                        }
+                     }
+                     return entrada;
+                    }
+        
+                    function editar(){
+                     let entrada = false;
+                     let seguro = confirm("Seguro quieres editar registro?");
+                     let clave = ''
+                     if(seguro == true){
+                        clave = prompt("Escribe la clave:");
+                        if(clave == 'fer543'){
+                           entrada = true;
+                        }
+                     }
+                     return entrada;
+                    }
+        
+        
+                    function eliminar(){
+                     let entrada = false;
+                     let seguro = confirm("Seguro quieres eliminar registro?");
+                     let clave = ''
+                     if(seguro == true){
+                        clave = prompt("Escribe la clave:");
+                        if(clave == 'fer543'){
+                           entrada = true;
+                        }
+                     }
+                     return entrada;
+                    }
+           </script>
+
         </div>
         <div th:if="${usuariosHalladosByComputadoraArrendado.isEmpty()}">
             <p class="text-primary" th:text="'No se ha encontrado el usuario por numero de bien ' + ${usuariosHalladosByComputadoraArrendado.isEmpty()? 'Lista vacia' : ''}"></p>
