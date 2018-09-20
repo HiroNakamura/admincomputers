@@ -59,6 +59,17 @@
 </form>
 </div>
 
+
+<div id="busqByIp" >
+    <form method="get" th:action="@{/hallarUsuarioByComputadoraIp}" th:object="${usuario}" action="/hallarUsuarioByComputadoraIp">    
+    <label>Buscar por Ip de computadora:</label> 
+    <input type="text" id="ip" name="ip" th:value="*{ip}"/>
+    <input type="submit" value="Buscar" class="btn btn-light"/>
+    </form>
+    </div>
+
+
+
 </div>
 
 
