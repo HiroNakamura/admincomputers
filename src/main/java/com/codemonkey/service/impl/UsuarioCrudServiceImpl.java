@@ -51,10 +51,4 @@ public class UsuarioCrudServiceImpl implements UsuarioCrudService {
         return buscarUsuarioByComputadoraArrendadoList; 
     }
 	
-   @Override
-    public List<Usuario> buscarUsuarioByComputadoraIp(String ip){
-        List<Usuario> buscarUsuarioByComputadoraIpList = usuarioCrudRepository.buscarUsuarioByComputadoraIp(ip);
-        LOGGER.info("--Resultado: "+buscarUsuarioByComputadoraIpList.toString());
-        return buscarUsuarioByComputadoraIpList;
-    }
 }
