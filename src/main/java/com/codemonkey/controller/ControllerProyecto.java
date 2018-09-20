@@ -290,6 +290,16 @@ public class ControllerProyecto{
         return "usuarioHalladoByComputadoraArrendado";
     }
 
+    /* Buscar usuario x Ip */
+    @GetMapping("/hallarUsuarioByComputadoraIp")
+    public String hallarUsuarioByComputadoraIp(@RequestParam("ip") String ip, Model model){
+        LOGGER.info("--Ip a buscar: "+ip);
+        List<Usuario> buscarUsuarioByComputadoraIp = usuarioCrudService.buscarUsuarioByComputadoraIp(ip);
+        model.addAttribute("usuariosHalladosByComputadoraIp",buscarUsuarioByComputadoraIp);
+        model.addAttribute("mensaje","Búsqueda realizada");    
+        return "usuarioHalladoByComputadoraIp";
+    }
+
 
     /* Buscar computadora x no. bien */
     @GetMapping("/hallarComputadoraByBien")
