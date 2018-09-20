@@ -20,6 +20,10 @@ public interface UsuarioCrudRepository extends CrudRepository<Usuario, Long>{
 
     @Query(value="SELECT public.usuario.idusuario, public.usuario.apellidos, public.usuario.cargo, public.usuario.nombre, public.usuario.password, public.usuario.usuario, public.usuario.idcomputadora, public.usuario.iddepartamento, public.computadora.bien, public.computadora.arrendado FROM public.usuario, public.computadora WHERE public.usuario.idcomputadora=public.computadora.idcomputadora AND public.computadora.arrendado LIKE %?1% ",nativeQuery=true)
     public List<Usuario> buscarUsuarioByComputadoraArrendado(String computadora);
+	
+   @Query(value="SELECT my_user.idusuario, my_user.apellidos, my_user.cargo, my_user.nombre, my_user.password, my_user.usuario, my_comp.bien, my_comp.ip, my_depto.nombre FROM public.usuario as my_user, public.computadora as my_comp, public.departamento as my_depto WHERE my_user.idcomputadora = my_comp.idcomputadora AND my_user.iddepartamento = my_depto.iddepartamento AND my_comp.ip = %?1% ",nativeQuery=true)
+    public List<Usuario> buscarUsuarioByComputadoraIp(String ip);
+
     
 
     /*
