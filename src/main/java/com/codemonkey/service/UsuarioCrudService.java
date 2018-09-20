@@ -8,5 +8,4 @@ public interface UsuarioCrudService{
     public List<Usuario> buscarUsuarioByUsuario(String usuario);
     public List<Usuario> buscarUsuarioByComputadoraBien(String computadora);
     public List<Usuario> buscarUsuarioByComputadoraArrendado(String computadora);
-    public List<Usuario> buscarUsuarioByComputadoraIp(String ip);
 }
