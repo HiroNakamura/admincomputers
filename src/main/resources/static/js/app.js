@@ -7,9 +7,10 @@ app.controller("appController", function ($scope, $http, dataResource) {
     $scope.datosResource = dataResource.get();
 })
  
-app.factory("datosResource", function ($resource) {
+
+app.factory("dataResource", function ($resource) {
     return $resource("http://localhost:8080/rest/departamentosRest",
         {},
         { get: { method: "GET", isArray: true }
-    });
-});
+    })
+})
