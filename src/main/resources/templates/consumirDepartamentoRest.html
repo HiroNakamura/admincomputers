@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="es" ng-app="app">
+ <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <script type="text/javascript" src="/js/angular.js"></script>
+ <script type="text/javascript" src="/js/angular_resource.js"></script>
+ <script type="text/javascript" src="/js/app.js"></script>
+ </head>
+ <body>
+ <div class="row" ng-controller="appController">
+            <h1 class="subheader">Consumir un json con $http en AngularJS</h1>
+            <ul class="panel callout radius">
+                <li ng-repeat="data in datos">
+                    <p>Id: {{ data.iddepartamento }} Nombre: {{ data.nombre }} Responsable: {{ data.responsable }}</p>
+                </li>
+            </ul>
+ 
+            <h1 class="subheader">Consumir un json con resource en AngularJS</h1>
+            <ul class="panel callout radius">
+                <li ng-repeat="data in datosResource">
+                    <p>Id: {{ data.iddepartamento }} Nombre: {{ data.nombre }} Responsable: {{ data.responsable }}</p>
+                </li>
+            </ul>
+ </div>
+ 
+ </body>
+</html>
