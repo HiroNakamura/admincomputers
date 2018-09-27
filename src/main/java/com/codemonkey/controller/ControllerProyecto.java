@@ -777,6 +777,11 @@ public class ControllerProyecto{
         return "computadorasTable";
     }
 
-
+    /*Consumir REST*/
+    @GetMapping("/consumir/consumirDepartamentoRest")
+    public ModelAndView consumirDepartamentoRest(){
+        ModelAndView mav = new ModelAndView("consumirDepartamentoRest");
+        return mav;
+    }
 
 }
