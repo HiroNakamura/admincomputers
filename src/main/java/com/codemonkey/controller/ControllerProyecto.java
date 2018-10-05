@@ -439,6 +439,13 @@ public class ControllerProyecto{
                 tipoMap.put("Escritorio", "escritorio");
                 tipoMap.put("Portatil", "portatil");
                 tipoMap.put("No especificada", "no especificada");
+                Map<String, String> dispositivoMap = new HashMap<>();
+                dispositivoMap.put("Computadora", "Computadora");
+                dispositivoMap.put("NoBreak", "NoBreak");
+                dispositivoMap.put("Switch", "Switch");
+                dispositivoMap.put("Disco", "Disco");
+                dispositivoMap.put("Monitor", "Monitor");
+                dispositivoMap.put("No especificado", "No especificado");
                 LOGGER.info("--Intentas actualizar computadora existente:"+computadoraUpdate);
                 model.addAttribute("computadorax",computadoraUpdate);
                 model.addAttribute("cargosMap",getCargosMap());
@@ -447,6 +454,7 @@ public class ControllerProyecto{
                 model.addAttribute("actualizarMap",actualizarMap);
                 model.addAttribute("mapSistema",mapSistema);
                 model.addAttribute("tipoMap",tipoMap);
+                model.addAttribute("dispositivoMap",dispositivoMap);
                 return "updateComputadora";
             }
         }
