@@ -91,6 +91,12 @@
       <option th:each="mapT : ${tipoMap}"
       th:value="${mapT.value}" th:text="${mapT.key}"/>
     </select><br/>
+    <span>Dispositivo:</span>
+    <select name="dispositivo">
+        <option th:each="mapD : ${dispositivoMap}"
+        th:value="${mapD.value}" th:text="${mapD.key}"/>
+      </select><br/>
+
   <!--<input type="text" id="tipo" name="tipo" th:value="*{tipo}" /><br/>-->
   <span>Modelo:</span>
   <input type="text" id="modelo" name="modelo" th:value="*{modelo}" /><br/>
