@@ -220,7 +220,7 @@ public class Computadora  implements java.io.Serializable {
 
         @Override
         public String toString(){
-                return "Computadora{ idcomputadora: "+idcomputadora+" , bien: "+bien+ " , arrendado: "+arrendado
+                return "Equipo{ idcomputadora: "+idcomputadora+" , bien: "+bien+ " , arrendado: "+arrendado
                 +", asignado: "+asignado+" , ip: "+ip+" , dns: "+dns+", red: "+red + ", dominio: "+dominio
                 +" , operativo: "+operativo+" , tipo: "+tipo+", dipositivo:"+dispositivo
                 +" , máquina: "+maquina+" , modelo: "+modelo
