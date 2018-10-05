@@ -31,6 +31,11 @@ public class ComputadoraCrudServiceImpl implements ComputadoraCrudService {
     }
 
     @Override
+    public List<Computadora> computadorasDispositivos(){
+        return computadoraCrudRepository.computadorasDispositivos();
+    }
+
+    @Override
     public List<Computadora> computadorasByBien(String bien){
         return computadoraCrudRepository.computadorasByBien(bien);
     }
