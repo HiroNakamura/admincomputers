@@ -13,6 +13,8 @@ public interface ComputadoraCrudRepository extends CrudRepository<Computadora, L
     public List<Computadora> computadorasArrendadas();
     @Query(value="SELECT idcomputadora, actualizada, administrador, arrendado, asignado, bien, departamento, dns, dominio, ip, maquina, modelo, operativo, red, tipo, ubicacion FROM public.computadora WHERE public.computadora.bien NOT LIKE '%MXL%' AND public.computadora.dispositivo='Computadora'",nativeQuery=true)
     public List<Computadora> computadorasNoArrendadas();
+    @Query(value="SELECT idcomputadora, actualizada, administrador, arrendado, asignado, bien, departamento, dns, dominio, ip, maquina, modelo, operativo, red, tipo, ubicacion FROM public.computadora WHERE public.computadora.dispositivo!='Computadora'",nativeQuery=true)
+    public List<Computadora> computadorasDispositivos();
    
 
     @Query(value="SELECT idcomputadora, actualizada, administrador, arrendado, asignado, bien, departamento, dns, dominio, ip, maquina, modelo, operativo, red, tipo, ubicacion FROM public.computadora WHERE public.computadora.bien LIKE %?1% ",nativeQuery=true)
