@@ -554,6 +554,7 @@ public class ControllerProyecto{
         excel.write("Red");excel.write("\t");
         excel.write("Operativo");excel.write("\t");
         excel.write("Tipo");excel.write("\t");
+        excel.write("Dispositivo");excel.write("\t");
         excel.write("Modelo");excel.write("\t");
         excel.write("Dominio");excel.write("\t");
         excel.write("Administrador");excel.write("\t");
@@ -573,6 +574,7 @@ public class ControllerProyecto{
             excel.write(comp.getRed()+"\t"); 
             excel.write(comp.getOperativo()+"\t"); 
             excel.write(comp.getTipo()+"\t"); 
+            excel.write(comp.getDispositivo()+"\t"); 
             excel.write(comp.getModelo()+"\t"); 
             excel.write(comp.getDominio()+"\t");
             excel.write(comp.getAdministrador()+"\t"); 
@@ -676,6 +678,7 @@ public class ControllerProyecto{
             html.write("<th style='background-color:white; color:black;'>Red</th>");
             html.write("<th style='background-color:white; color:black;'>Operativo</th>");
             html.write("<th style='background-color:white; color:black;'>Tipo</th>");
+            html.write("<th style='background-color:white; color:black;'>Dispositivo</th>");
             html.write("<th style='background-color:white; color:black;'>Modelo</th>");
             html.write("<th style='background-color:white; color:black;'>Dominio</th>");
             html.write("<th style='background-color:white; color:black;'>Administrador</th>");
@@ -706,6 +709,7 @@ public class ControllerProyecto{
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getRed() +"</td>");
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getOperativo() +"</td>");
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getTipo() +"</td>");
+                        html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getDispositivo() +"</td>");
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getModelo() +"</td>");
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getDominio() +"</td>");
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getAdministrador() +"</td>");
