@@ -152,6 +152,7 @@ public class ControllerProyecto{
         modelAndView.addObject("total",computadoraService.getAllComputadoras());
         modelAndView.addObject("arrendadas",computadoraCrudService.computadorasArrendadas());
         modelAndView.addObject("noarrendadas",computadoraCrudService.computadorasNoArrendadas());
+        modelAndView.addObject("dispositivos",computadoraCrudService.computadorasDispositivos());
         modelAndView.addObject("computerss", this.computerss);
         int evalPageSize = pageSize.orElse(INITIAL_PAGE_SIZE);
         int evalPage = (page.orElse(0) < 1) ? INITIAL_PAGE : page.get() - 1;
