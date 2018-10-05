@@ -43,6 +43,8 @@ import java.io.IOException;
 import java.util.Optional;
 
 
+
+
 @Controller
 public class ControllerProyecto{
 
@@ -201,12 +203,20 @@ public class ControllerProyecto{
         tipoMap.put("Escritorio", "escritorio");
         tipoMap.put("Portatil", "portatil");
         tipoMap.put("No especificada", "no especificada");
+        Map<String, String> dispositivoMap = new HashMap<>();
+        dispositivoMap.put("Computadora", "Computadora");
+        dispositivoMap.put("NoBreak", "NoBreak");
+        dispositivoMap.put("Switch", "Switch");
+        dispositivoMap.put("Disco", "Disco");
+        dispositivoMap.put("Monitor", "Monitor");
+        dispositivoMap.put("No especificado", "No especificado");
         model.addAttribute("computer", new Computadora());
         model.addAttribute("computers", computadoraService.getAllComputadoras());
         model.addAttribute("departamentosSelect",departamentosSelect);
         model.addAttribute("actualizarMap",actualizarMap);
         model.addAttribute("mapSistema",mapSistema);
         model.addAttribute("tipoMap",tipoMap);
+        model.addAttribute("dispositivoMap",dispositivoMap);
         LOGGER.info("--Has entrado a /computadorasModel");
         return "formComputadoras";
     }
@@ -288,16 +298,6 @@ public class ControllerProyecto{
         model.addAttribute("usuariosHalladosByComputadoraArrendado",buscarUsuarioByComputadoraArrendado);
         model.addAttribute("mensaje","Búsqueda realizada");    
         return "usuarioHalladoByComputadoraArrendado";
-    }
-
-    /* Buscar usuario x Ip */
-    @GetMapping("/hallarUsuarioByComputadoraIp")
-    public String hallarUsuarioByComputadoraIp(@RequestParam("ip") String ip, Model model){
-        LOGGER.info("--Ip a buscar: "+ip);
-        List<Usuario> buscarUsuarioByComputadoraIp = usuarioCrudService.buscarUsuarioByComputadoraIp(ip);
-        model.addAttribute("usuariosHalladosByComputadoraIp",buscarUsuarioByComputadoraIp);
-        model.addAttribute("mensaje","Búsqueda realizada");    
-        return "usuarioHalladoByComputadoraIp";
     }
 
 
@@ -777,11 +777,14 @@ public class ControllerProyecto{
         return "computadorasTable";
     }
 
+
     /*Consumir REST*/
     @GetMapping("/consumir/consumirDepartamentoRest")
     public ModelAndView consumirDepartamentoRest(){
         ModelAndView mav = new ModelAndView("consumirDepartamentoRest");
         return mav;
     }
+
+
 
 }
