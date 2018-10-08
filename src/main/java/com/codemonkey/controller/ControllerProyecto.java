@@ -546,6 +546,48 @@ public class ControllerProyecto{
 
     public void toExcelComp(List<Computadora> computadorasSelect, File file) throws IOException{
         FileWriter excel = new FileWriter(file);
+        List<Usuario> usuarios = usuarioService.getAllUsuarios();
+        int cont=0;
+
+        if(usuarios.size() < computadorasSelect.size() ){
+            excel.write("Bien");excel.write("\t");
+            excel.write("Arrendado");excel.write("\t");
+            excel.write("Asignado");excel.write("\t");
+            excel.write("Ip");excel.write("\t");
+        excel.write("Dns");excel.write("\t");
+        excel.write("Red");excel.write("\t");
+        excel.write("Operativo");excel.write("\t");
+        excel.write("Tipo");excel.write("\t");
+        excel.write("Dispositivo");excel.write("\t");
+        excel.write("Modelo");excel.write("\t");
+        excel.write("Dominio");excel.write("\t");
+        excel.write("Administrador");excel.write("\t");
+        excel.write("Ubicacion");excel.write("\t");
+        excel.write("Actualizada");excel.write("\t");
+        excel.write("Departamento");excel.write("\t");
+        excel.write("\n");
+        for(Computadora comp : computadorasSelect){
+            
+            excel.write(comp.getBien()+"\t");
+            excel.write(comp.getArrendado()+"\t");
+            excel.write(comp.getAsignado()+"\t");
+            excel.write(comp.getIp()+"\t"); 
+            excel.write(comp.getDns()+"\t"); 
+            excel.write(comp.getRed()+"\t"); 
+            excel.write(comp.getOperativo()+"\t"); 
+            excel.write(comp.getTipo()+"\t"); 
+            excel.write(comp.getDispositivo()+"\t"); 
+            excel.write(comp.getModelo()+"\t"); 
+            excel.write(comp.getDominio()+"\t");
+            excel.write(comp.getAdministrador()+"\t"); 
+            excel.write(comp.getUbicacion()+"\t"); 
+            excel.write(comp.isActualizada()? "Actualizada": "No actualizada"+"\t");
+            excel.write(comp.getDepartamento().getNombre()+"\t");   excel.write("\n");
+            cont++;
+        }
+
+        }else{
+
         excel.write("Usuario");excel.write("\t");
         excel.write("Bien");excel.write("\t");
         excel.write("Arrendado");excel.write("\t");
@@ -563,8 +605,7 @@ public class ControllerProyecto{
         excel.write("Actualizada");excel.write("\t");
         excel.write("Departamento");excel.write("\t");
         excel.write("\n");
-        List<Usuario> usuarios = usuarioService.getAllUsuarios();
-        int cont=0;
+       
         for(Computadora comp : computadorasSelect){
             excel.write(usuarios.get(cont).getUsuario()+" : "+usuarios.get(cont).getCargo()+"\t");
             excel.write(comp.getBien()+"\t");
@@ -584,6 +625,7 @@ public class ControllerProyecto{
             excel.write(comp.getDepartamento().getNombre()+"\t");   excel.write("\n");
             cont++;
         }
+    }
         excel.close();
     }
 
