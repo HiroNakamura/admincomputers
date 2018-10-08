@@ -447,6 +447,8 @@ public class ControllerProyecto{
                 dispositivoMap.put("NoBreak", "NoBreak");
                 dispositivoMap.put("Switch", "Switch");
                 dispositivoMap.put("Disco", "Disco");
+                dispositivoMap.put("Impresora", "Impresora");
+                dispositivoMap.put("Scanner", "Scanner");
                 dispositivoMap.put("Monitor", "Monitor");
                 dispositivoMap.put("No especificado", "No especificado");
                 LOGGER.info("--Intentas actualizar computadora existente:"+computadoraUpdate);
