@@ -705,6 +705,73 @@ public class ControllerProyecto{
     }
 
     public void toHTMLComp(List<Computadora> computadorasSelect, File file) throws IOException{
+        List<Usuario> usuarios = usuarioService.getAllUsuarios();
+        if(usuarios.size() < computadorasSelect.size() ){
+            try (FileWriter html = new FileWriter(file)) {
+                html.write("<!DOCTYPE html>" +"<html lang='es'>"
+                        + "<head> <meta charset='utf-8'> <title>Registro de computadoras</title>" 
+                        +"</head><body style='background-color:#edefee;color:#ad0505;'>");
+                html.write("<h1 align='center' style='background-color: white;'>Registro de computadoras</h1>");
+                html.write("<table id='tablaUsuario' align='center' border='0' dt:table='true'><tr>");
+                html.write("<tr>");
+                html.write("<th style='background-color:white; color:black;'>Bien</th>");
+                html.write("<th style='background-color:white; color:black;'>Arrendado</th>");
+                html.write("<th style='background-color:white; color:black;'>Asignado</th>");
+                html.write("<th style='background-color:white; color:black;'>Ip</th>");
+                html.write("<th style='background-color:white; color:black;'>Dns</th>");
+                html.write("<th style='background-color:white; color:black;'>Red</th>");
+                html.write("<th style='background-color:white; color:black;'>Operativo</th>");
+                html.write("<th style='background-color:white; color:black;'>Tipo</th>");
+                html.write("<th style='background-color:white; color:black;'>Dispositivo</th>");
+                html.write("<th style='background-color:white; color:black;'>Modelo</th>");
+                html.write("<th style='background-color:white; color:black;'>Dominio</th>");
+                html.write("<th style='background-color:white; color:black;'>Administrador</th>");
+                html.write("<th style='background-color:white; color:black;'>Ubicacion</th>");
+                html.write("<th style='background-color:white; color:black;'>Actualizacion</th>");
+                html.write("<th style='background-color:white; color:black;'>Departamento</th>");
+                html.write("</tr>");
+    
+                
+                for(int i=0; i < computadorasSelect.size(); i++){
+                    html.write("<tr>");
+                    for(int j=0; j < computadorasSelect.size(); j++){
+                        try{
+                            
+                            String cadena = computadorasSelect.get(i).isActualizada()? "Actualizada" : "No actualizada";
+                            String result = computadorasSelect.get(i).isActualizada()? "<td style='background-color: #A9E2F3 ; color:green; font-weight: bold;'>"
+                            +cadena
+                            +"</td>" : "<td style='background-color: #A9E2F3 ; color:red; font-weight: bold;'>"
+                            +cadena 
+                            +"</td>";
+    
+                            
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getBien() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getArrendado() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getAsignado() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getIp() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getDns() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getRed() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getOperativo() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getTipo() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getDispositivo() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getModelo() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getDominio() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getAdministrador() +"</td>");
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getUbicacion() +"</td>");
+                            html.write(result);
+                            html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getDepartamento().getNombre() +"</td>");
+                            
+                        }catch(NullPointerException | ArrayIndexOutOfBoundsException npe){
+                            LOGGER.info("--Ha ocurrido una excepcion:"+npe.toString());
+                        }
+                    }
+                    html.write("</tr>");
+                }    
+                html.write("</table>");
+                html.write("</body>\n" +"</html>");
+            }
+        }else{
+        
         try (FileWriter html = new FileWriter(file)) {
             html.write("<!DOCTYPE html>" +"<html lang='es'>"
                     + "<head> <meta charset='utf-8'> <title>Registro de computadoras</title>" 
@@ -730,7 +797,7 @@ public class ControllerProyecto{
             html.write("<th style='background-color:white; color:black;'>Departamento</th>");
             html.write("</tr>");
 
-            List<Usuario> usuarios = usuarioService.getAllUsuarios();
+            
             for(int i=0; i < computadorasSelect.size(); i++){
                 html.write("<tr>");
                 for(int j=0; j < computadorasSelect.size(); j++){
@@ -769,6 +836,10 @@ public class ControllerProyecto{
             html.write("</table>");
             html.write("</body>\n" +"</html>");
         }
+    }
+
+
+
     }
 
 
