@@ -651,6 +651,7 @@ public class ControllerProyecto{
                     + "<head> <meta charset='utf-8'> <title>Registro de usuarios</title>" 
                     +"</head><body style='background-color:#edefee;color:#ad0505;'>");
             html.write("<h1 align='center' style='background-color: white;'>Registro de usuarios</h1>");
+            html.write("<br/><p>Total registros:"+usuariosSelect.size()+"</p>");
             html.write("<table id='tablaUsuario' align='center' border='0' dt:table='true'><tr>");
             html.write("<tr>");
             html.write("<th style='background-color:white; color:black;'>Usuario</th>");
@@ -712,6 +713,7 @@ public class ControllerProyecto{
                         + "<head> <meta charset='utf-8'> <title>Registro de computadoras</title>" 
                         +"</head><body style='background-color:#edefee;color:#ad0505;'>");
                 html.write("<h1 align='center' style='background-color: white;'>Registro de computadoras</h1>");
+                html.write("<br/><p>Total registros:"+computadorasSelect.size()+"</p>");
                 html.write("<table id='tablaUsuario' align='center' border='0' dt:table='true'><tr>");
                 html.write("<tr>");
                 html.write("<th style='background-color:white; color:black;'>Bien</th>");
@@ -777,6 +779,7 @@ public class ControllerProyecto{
                     + "<head> <meta charset='utf-8'> <title>Registro de computadoras</title>" 
                     +"</head><body style='background-color:#edefee;color:#ad0505;'>");
             html.write("<h1 align='center' style='background-color: white;'>Registro de computadoras</h1>");
+            html.write("<br/><p>Total registros:"+computadorasSelect.size()+"</p>");
             html.write("<table id='tablaUsuario' align='center' border='0' dt:table='true'><tr>");
             html.write("<tr>");
             html.write("<th style='background-color:white; color:black;'>Usuario:Cargo</th>");
