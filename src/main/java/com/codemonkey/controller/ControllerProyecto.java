@@ -282,7 +282,7 @@ public class ControllerProyecto{
         List<Usuario> buscarUsuarioByUsuario = usuarioCrudService.buscarUsuarioByUsuario(usuario);
         model.addAttribute("usuariosHalladosByUsuario",buscarUsuarioByUsuario);
         model.addAttribute("mensaje","Búsqueda realizada"); 
-        model.addAttribute("tam","Total de registros hallados: "+buscarUsuarioByUsuario .size()) ;    
+        model.addAttribute("tam","Total de registros hallados: "+buscarUsuarioByUsuario.size()) ;    
         return "usuarioHalladoByUsuario";
     }
 
@@ -292,7 +292,8 @@ public class ControllerProyecto{
         LOGGER.info("--Bien a buscar: "+computadora);
         List<Usuario> buscarUsuarioByComputadoraBien = usuarioCrudService.buscarUsuarioByComputadoraBien(computadora);
         model.addAttribute("usuariosHalladosByComputadoraBien",buscarUsuarioByComputadoraBien);
-        model.addAttribute("mensaje","Búsqueda realizada");    
+        model.addAttribute("mensaje","Búsqueda realizada");
+        model.addAttribute("tam","Total de registros hallados: "+buscarUsuarioByComputadoraBien.size()) ;      
         return "usuarioHalladoByComputadoraBien";
     }
     /* Buscar usuario x computadora arrendado */
