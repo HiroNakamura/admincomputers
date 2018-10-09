@@ -270,7 +270,8 @@ public class ControllerProyecto{
         LOGGER.info("--Nombre a buscar: "+nombre);
         List<Usuario> buscarUsuarioByNombre = usuarioCrudService.buscarUsuarioByNombre(nombre);
         model.addAttribute("usuariosHalladosByNombre",buscarUsuarioByNombre);
-        model.addAttribute("mensaje","Búsqueda realizada");    
+        model.addAttribute("mensaje","Búsqueda realizada");
+        model.addAttribute("tam","Total de registros hallados: "+buscarUsuarioByNombre.size()) ;   
         return "usuarioHalladoByNombre";
     }
 
