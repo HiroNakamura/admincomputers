@@ -13,6 +13,7 @@
     <body>
         <div class="jumbotron text-center">
             <h1 th:text="${mensaje}"></h1>
+            <p class="alert alert-success" th:text="${tam}"></p>
         </div>
         <!-- Usuario x arrendado -->
             <div th:if="${!usuariosHalladosByComputadoraArrendado.isEmpty()}">
@@ -104,7 +105,6 @@
                      return entrada;
                     }
            </script>
-
         </div>
         <div th:if="${usuariosHalladosByComputadoraArrendado.isEmpty()}">
             <p class="text-primary" th:text="'No se ha encontrado el usuario por numero de bien ' + ${usuariosHalladosByComputadoraArrendado.isEmpty()? 'Lista vacia' : ''}"></p>
