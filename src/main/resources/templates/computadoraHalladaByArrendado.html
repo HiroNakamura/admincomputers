@@ -13,6 +13,8 @@
     <body>
         <div class="jumbotron text-center">
             <h1 th:text="${mensaje}"></h1>
+            <p class="alert alert-success" th:text="${tamComp}"></p>
+            <p class="alert alert-success" th:text="${tamUser}"></p>
         </div>
         <!-- Computadora x arrendado -->
             <div th:if="${!computadorasHalladasByArrendado.isEmpty()}">
