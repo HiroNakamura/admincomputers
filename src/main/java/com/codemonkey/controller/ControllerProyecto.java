@@ -319,6 +319,8 @@ public class ControllerProyecto{
         model.addAttribute("usuariosHalladosByComputadoraBien",buscarUsuarioByComputadoraBien);
         model.addAttribute("computadorasHalladasByBien",buscarComputadoraByBien);
         model.addAttribute("mensaje","Búsqueda realizada"); 
+        model.addAttribute("tamUser","Total de registros de usuario hallados: "+buscarUsuarioByComputadoraBien.size()) ;
+        model.addAttribute("tamComp","Total de registros de dispositivos hallados: "+buscarComputadoraByBien.size()) ;
         return "computadoraHalladaByBien";
     }
     
@@ -334,6 +336,8 @@ public class ControllerProyecto{
 
 
         model.addAttribute("mensaje","Búsqueda realizada"); 
+        model.addAttribute("tamUser","Total de registros de usuario hallados: "+buscarUsuarioByComputadoraArrendado.size()) ;
+        model.addAttribute("tamComp","Total de registros de dispositivos hallados: "+buscarComputadoraByArrendado.size()) ;
         return "computadoraHalladaByArrendado";
     }
 
@@ -344,6 +348,7 @@ public class ControllerProyecto{
         List<Computadora> buscarComputadoraByIp = computadoraCrudService.computadorasByIp(ip);
         model.addAttribute("computadorasHalladasByIp",buscarComputadoraByIp);
         model.addAttribute("mensaje","Búsqueda realizada"); 
+        model.addAttribute("tamComp","Total de registros de dispositivos hallados: "+buscarComputadoraByIp.size()) ;
         return "computadoraHalladaByIp";
     }
 
