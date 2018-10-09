@@ -13,7 +13,8 @@
     <body>
         <div class="jumbotron text-center">
             <h1 th:text="${mensaje}"></h1>
-        
+            <p class="alert alert-success" th:text="${tam}"></p>
+        </div>
         <!-- Usuario x nombre de usuario-->
             <div th:if="${!usuariosHalladosByUsuario.isEmpty()}">
             <table class="table table-dark table-hover" align="center" border="0" dt:table="true">
