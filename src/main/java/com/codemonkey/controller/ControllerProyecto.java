@@ -302,7 +302,8 @@ public class ControllerProyecto{
         LOGGER.info("--Bien a buscar: "+computadora);
         List<Usuario> buscarUsuarioByComputadoraArrendado = usuarioCrudService.buscarUsuarioByComputadoraArrendado(computadora);
         model.addAttribute("usuariosHalladosByComputadoraArrendado",buscarUsuarioByComputadoraArrendado);
-        model.addAttribute("mensaje","Búsqueda realizada");    
+        model.addAttribute("mensaje","Búsqueda realizada");   
+        model.addAttribute("tam","Total de registros hallados: "+buscarUsuarioByComputadoraArrendado.size()) ;  
         return "usuarioHalladoByComputadoraArrendado";
     }
 
