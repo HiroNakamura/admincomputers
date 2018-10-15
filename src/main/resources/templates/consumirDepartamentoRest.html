@@ -10,21 +10,28 @@
  <body>
         <div class="row" ng-controller="appController">
                 <h1 class="subheader">Consumir un json con $http en AngularJS</h1>
-                <ul class="panel callout radius">
-                    <li ng-repeat="data in datos">
-                            <p>Id: {{ data.iddepartamento }} Nombre: {{ data.nombre }} Responsable: {{ data.responsable }}</p>
-                    </li>
-                </ul>
-     
-                <h1 class="subheader">Consumir un json con resource en AngularJS</h1>
+                <table class="table table-dark table-hover" align="center" border="1" >
+                    <thead >
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Responsable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in datos">
+                            <td>{{ data.nombre }}</td>
+                            <td>{{ data.responsable }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!--<h1 class="subheader">Consumir un json con resource en AngularJS</h1>
                 <ul class="panel callout radius">
                     <li ng-repeat="data in datosResource">
                             <p>Id: {{ data.iddepartamento }} Nombre: {{ data.nombre }} Responsable: {{ data.responsable }}</p>
                     </li>
-                </ul>
+                </ul>-->
      </div>
 
-
- 
  </body>
 </html>
