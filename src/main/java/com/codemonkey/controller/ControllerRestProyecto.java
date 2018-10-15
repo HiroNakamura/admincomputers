@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable ;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,4 +59,19 @@ public class ControllerRestProyecto{
         return usuarioService.getAllUsuarios();
     }
 
+    /*CRUD Usuario*/
+    @GetMapping("/usuariosRest/{id}")
+    public Usuario getUsuario(@PathVariable("id") long id){
+        LOGGER.info("--Buscas el id:"+id);
+        Usuario encontrado = usuarioService.getUsuarioById(id);
+        if(encontrado == null){
+            return null;
+        }
+        return encontrado;
+    }
+
+    /*CRUD Computadora*/
+
+
 }
+
