@@ -81,5 +81,10 @@ public class UsuarioServiceImpl implements UsuarioService {
         public Usuario getUsuarioById(long idusuario){
                 return usuarioRepository.findById(idusuario).orElse(null);
         }
+
+        @Override
+        public boolean existUsuario(Usuario usuario){
+                return getUsuarioById(usuario.getIdUsuario()) != null;
+        }
     
 }
