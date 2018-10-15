@@ -5,7 +5,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable ;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,6 +65,7 @@ public class ControllerRestProyecto{
 
     /*CRUD Usuario*/
 
+    //GET ALL
     //http://localhost:8080/rest/usuariosRest
     @GetMapping("/usuariosRest")
     public List<Usuario> getAllUsuarios(){
@@ -65,7 +73,8 @@ public class ControllerRestProyecto{
         return usuarioService.getAllUsuarios();
     }
 
-    
+    //GET ONE
+    //http://localhost:8080/rest/usuariosRest/{id}
     @GetMapping("/usuariosRest/{id}")
     public Usuario getUsuario(@PathVariable("id") long id){
         LOGGER.info("--Buscas el id:"+id);
@@ -74,6 +83,19 @@ public class ControllerRestProyecto{
             return null;
         }
         return encontrado;
+    }
+
+    //CREATE
+    @PutMapping("/usuario/")
+    public Usuario createUsuario(@RequestBody Usuario usuario) {
+        LOGGER.info("Creando usuario: {}", usuario);
+ 
+        if (usuarioService.existUsuario(usuario)) {
+            LOGGER.error("El usuario ya existe!! >> ", usuario.getNombre());
+            return null;
+        }
+
+        return usuarioService.addUsuario(usuario);
     }
 
     
