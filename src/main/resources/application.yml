@@ -12,24 +12,28 @@ banner:
    location: banner.txt
 
 spring:
-   thymeleaf.cache: false
-   thymeleaf.check-template: true
-   thymeleaf.check-template-location: true
-   thymeleaf.content-type: text/html
-   thymeleaf.enabled: true
-   thymeleaf.encoding: UTF-8
-   thymeleaf.suffix: .html
-   jpa.generate-ddl: true
-   jpa.show-sql: true
-   jpa.hibernate.ddl-auto: update
-   jpa.hibernate.naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-   jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
-   datasource.driverClassName: org.postgresql.Driver
-   datasource.url: jdbc:postgresql://localhost:5432/sistema
-   datasource.username: postgres
-   datasource.password: 5432
-   servlet.multipart.max-file-size: 128KB
-   servlet.multipart.max-request-size: 128KB
+   thymeleaf:
+     cache: false
+     check-template: true
+     check-template-location: true
+     content-type: text/html
+     enabled: true
+     encoding: UTF-8
+     suffix: .html
+   jpa:
+     generate-ddl: true
+     show-sql: true
+     hibernate.ddl-auto: update
+     hibernate.naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+     database-platform: org.hibernate.dialect.PostgreSQLDialect
+   datasource:
+     driverClassName: org.postgresql.Driver
+     url: jdbc:postgresql://localhost:5432/sistema
+     username: postgres
+     password: 5432
+   servlet:
+     multipart.max-file-size: 128KB
+     multipart.max-request-size: 128KB
    http.multipart.enabled: false
 
 
