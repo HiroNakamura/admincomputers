@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PathVariable ;
+
 
 import com.codemonkey.service.DepartamentoService;
 import com.codemonkey.service.UsuarioService;
@@ -921,12 +921,11 @@ public class ControllerProyecto{
 
 
     /*Consumir REST*/
+    //http://localhost:8080/consumir/consumirDepartamentoRest
     @GetMapping("/consumir/consumirDepartamentoRest")
     public ModelAndView consumirDepartamentoRest(){
         ModelAndView mav = new ModelAndView("consumirDepartamentoRest");
         return mav;
     }
-
-
 
 }
