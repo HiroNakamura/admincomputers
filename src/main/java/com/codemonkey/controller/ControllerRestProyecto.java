@@ -38,6 +38,8 @@ public class ControllerRestProyecto{
     @Qualifier("usuarioService")
     private UsuarioService usuarioService;
 
+
+    /*CRUD Computadora*/
     //http://localhost:8080/rest/computadorasRest
     @GetMapping("/computadorasRest")
     public List<Computadora> getAllComputadoras(){
@@ -52,6 +54,10 @@ public class ControllerRestProyecto{
         return departamentoService.getAllDepartamentos();
     }
 
+
+
+    /*CRUD Usuario*/
+
     //http://localhost:8080/rest/usuariosRest
     @GetMapping("/usuariosRest")
     public List<Usuario> getAllUsuarios(){
@@ -59,7 +65,7 @@ public class ControllerRestProyecto{
         return usuarioService.getAllUsuarios();
     }
 
-    /*CRUD Usuario*/
+    
     @GetMapping("/usuariosRest/{id}")
     public Usuario getUsuario(@PathVariable("id") long id){
         LOGGER.info("--Buscas el id:"+id);
@@ -70,8 +76,7 @@ public class ControllerRestProyecto{
         return encontrado;
     }
 
-    /*CRUD Computadora*/
+    
 
 
 }
-
