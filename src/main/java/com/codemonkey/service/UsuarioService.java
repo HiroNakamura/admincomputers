@@ -9,4 +9,5 @@ public interface UsuarioService{
     public Usuario addUsuario(Usuario usuario);
     public Usuario updateUsuario(Long idusuario, String apellidos, String cargo, String nombre, String password,String usuario,Long idcomputadora,Long iddepartamento);
     public void deleteUsuario(long idusuario);
+    public boolean existUsuario(Usuario usuario);
 }
