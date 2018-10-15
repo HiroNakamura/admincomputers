@@ -1,6 +1,5 @@
 package com.codemonkey.controller;
 
-
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +16,8 @@ import com.codemonkey.entity.Departamento;
 import com.codemonkey.service.DepartamentoService;
 import com.codemonkey.entity.Usuario;
 import com.codemonkey.service.UsuarioService;
+
+//import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/rest")
@@ -36,23 +37,25 @@ public class ControllerRestProyecto{
     @Qualifier("usuarioService")
     private UsuarioService usuarioService;
 
+    //http://localhost:8080/rest/computadorasRest
     @GetMapping("/computadorasRest")
     public List<Computadora> getAllComputadoras(){
         LOGGER.info("--Has entrado a http://localhost:8080/rest/computadorasRest");
         return computadoraService.getAllComputadoras();
     }
 
+    //http://localhost:8080/rest/departamentosRest
 	@GetMapping("/departamentosRest")
     public List<Departamento> getAllDepartamentos(){
         LOGGER.info("--Has entrado a http://localhost:8080/rest/departamentosRest");
         return departamentoService.getAllDepartamentos();
     }
 
+    //http://localhost:8080/rest/usuariosRest
     @GetMapping("/usuariosRest")
     public List<Usuario> getAllUsuarios(){
         LOGGER.info("--Has entrado a http://localhost:8080/rest/usuariosRest");
         return usuarioService.getAllUsuarios();
     }
-
 
 }
