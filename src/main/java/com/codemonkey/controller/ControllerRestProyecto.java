@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable ;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.HttpHeaders;
@@ -65,7 +67,7 @@ public class ControllerRestProyecto{
 
     /*CRUD Usuario*/
 
-    //GET ALL
+    //READ ALL -> GET
     //http://localhost:8080/rest/usuariosRest
     @GetMapping("/usuariosRest")
     public List<Usuario> getAllUsuarios(){
@@ -73,7 +75,7 @@ public class ControllerRestProyecto{
         return usuarioService.getAllUsuarios();
     }
 
-    //GET ONE
+    //READ ONE -> GET
     //http://localhost:8080/rest/usuariosRest/{id}
     @GetMapping("/usuariosRest/{id}")
     public Usuario getUsuario(@PathVariable("id") long id){
@@ -85,8 +87,8 @@ public class ControllerRestProyecto{
         return encontrado;
     }
 
-    //CREATE
-    @PutMapping("/usuario/")
+    //CREATE -> POST
+    @PostMapping("/usuario/")
     public Usuario createUsuario(@RequestBody Usuario usuario) {
         LOGGER.info("Creando usuario: {}", usuario);
  
@@ -98,7 +100,35 @@ public class ControllerRestProyecto{
         return usuarioService.addUsuario(usuario);
     }
 
-    
+    //UPDATE -> PUT
+    @PutMapping("/usuario/{id}")
+    public Usuario updateUsuario(@PathVariable("id") long id, @RequestBody Usuario usuario){
+        LOGGER.info("Actualizando usuario con id:"+id);
+        Usuario encontrado = usuarioService.getUsuarioById(id);
+        if(encontrado==null){
+            LOGGER.info("No se puede actualizar usuario con id:"+id);
+            return null;
+        }
+        encontrado.setNombre(usuario.getNombre());
+        encontrado.setApellidos(usuario.getApellidos());
+        encontrado.setUsuario(usuario.getUsuario());
+        encontrado.setPassword(usuario.getPassword());
+        encontrado.setCargo(usuario.getCargo());
+        encontrado.setComputadora(usuario.getComputadora());
+        encontrado.setDepartamento(usuario.getDepartamento());
+        return encontrado;
+    }
 
+    //DELETE -> DELETE
+    @PutMapping("/usuariodelete/{id}")
+    public Usuario deleteUsuario(@PathVariable("id") long id){
+        LOGGER.info("Borrando usuario con id:"+id);
+        Usuario encontrado = usuarioService.getUsuarioById(id);
+        if(encontrado==null){
+            return null;
+        }
+
+        return encontrado;
+    }
 
 }
