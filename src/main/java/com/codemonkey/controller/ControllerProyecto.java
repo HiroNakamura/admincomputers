@@ -482,12 +482,15 @@ public class ControllerProyecto{
     @RequestParam(name="asignado") String asignado, @RequestParam(name="ip")String ip,
     @RequestParam(name="dns") String dns, @RequestParam(name="red") String red,
     @RequestParam(name="operativo") String operativo, @RequestParam(name="maquina") String maquina,
-    @RequestParam(name="tipo") String tipo, @RequestParam(name="modelo") String modelo,@RequestParam(name="dominio") String dominio,
-    @RequestParam(name="administrador") String administrador, @RequestParam(name="ubicacion") String ubicacion,
+    @RequestParam(name="tipo") String tipo, @RequestParam(name="modelo") String modelo,
+    @RequestParam(name="dominio") String dominio,
+    @RequestParam(name="administrador") String administrador, 
+    @RequestParam(name="ubicacion") String ubicacion,
+    @RequestParam(name="dispositivo") String dispositivo,
     @RequestParam(name="actualizada") boolean actualizada,@RequestParam(name="departamento") long departamento){
         Computadora computadoraActualizada = null;
         try{
-            computadoraActualizada = computadoraService.updateComputadora(idcomputadora, bien,arrendado,asignado,ip,dns,red,operativo,maquina,tipo,modelo,dominio,administrador,ubicacion,actualizada,departamento);
+            computadoraActualizada = computadoraService.updateComputadora(idcomputadora, bien,arrendado,asignado,ip,dns,red,operativo,maquina,tipo,modelo,dominio,administrador,ubicacion,dispositivo,actualizada,departamento);
         }catch(Exception ex){
             LOGGER.info("--Ha ocurrido un error:");
             ex.printStackTrace();
@@ -927,5 +930,7 @@ public class ControllerProyecto{
         ModelAndView mav = new ModelAndView("consumirDepartamentoRest");
         return mav;
     }
+
+
 
 }
