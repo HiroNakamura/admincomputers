@@ -17,6 +17,7 @@ $(document).ready( function () {
 		      { "mData": "dominio" },
 		      { "mData": "ubicacion" },
 		      { "mData": "administrador" },
+		      { "mData": "estado" },
 		      { "mData": "actualizada" },
 		      { "mData": "departamento.nombre" }
 			]
