@@ -47,7 +47,7 @@ public class ComputadoraServiceImpl implements ComputadoraService {
         public Computadora updateComputadora(long idcomputadora,String bien,String arrendado, 
                 String asignado,String ip, String dns, 
                 String red,String operativo,String maquina, String tipo, String modelo,String dominio,
-                String administrador,String ubicacion,String dispositivo,boolean actualizada, long iddepartamento){
+                String administrador,String ubicacion,String dispositivo,boolean estado,boolean actualizada, long iddepartamento){
                         LOGGER.info("--Has entrado a #updateComputadora");
                 Computadora computadoraUpdate = computadoraRepository.findById(idcomputadora).orElse(null);
                 Departamento departamentoId = departamentoRepository.findById(iddepartamento).orElse(null);
@@ -68,6 +68,7 @@ public class ComputadoraServiceImpl implements ComputadoraService {
                                 computadoraUpdate.setAdministrador(administrador);
                                 computadoraUpdate.setUbicacion(ubicacion);
                                 computadoraUpdate.setDispositivo(dispositivo);
+                                computadoraUpdate.setEstado(estado);
                                 computadoraUpdate.setActualizada(actualizada);
                                 computadoraUpdate.setDepartamento(departamentoId);
                                 LOGGER.info("--Has actualizado computadora:"+computadoraUpdate);
