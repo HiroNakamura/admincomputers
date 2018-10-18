@@ -53,7 +53,7 @@
 
 
         <div id="nuevo">
-            <a th:href="@{/computadorasModel}" data-toggle="tooltip" title="Nuevo registro">Nuevo registro</a>
+            <a onclick="return agregar()" th:href="@{/computadorasModel}" data-toggle="tooltip" title="Nuevo registro">Nuevo registro</a>
             <a href="#" th:href="@{/excelcomp}" data-toggle="tooltip" title="Exportar a excel">Excel</a> 
             <a href="#" th:href="@{/htmlcomp}" data-toggle="tooltip" title="Exportar a html">HTML</a> 
         </div>
@@ -123,7 +123,18 @@
     </table>
 
     <script>
-
+    function agregar(){
+                 let entrada = false;
+                 let seguro = confirm("Seguro quieres añadir registro?");
+                 let clave = ''
+                 if(seguro == true){
+                    clave = prompt("Escribe la clave:");
+                    if(clave == 'fer543'){
+                       entrada = true;
+                    }
+                 }
+                 return entrada;
+                }
     
                 function editar(){
                  let entrada = false;
