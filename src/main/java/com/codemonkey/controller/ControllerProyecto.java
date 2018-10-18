@@ -200,6 +200,9 @@ public class ControllerProyecto{
         Map<String, Boolean> actualizarMap = new HashMap<>();
         actualizarMap.put("Actualizada", true);
         actualizarMap.put("No actualizada", false);
+        Map<String, Boolean> estadoMap = new HashMap<>();
+        estadoMap.put("Buen estado", true);
+        estadoMap.put("Mal estado", false);
         Map<String, String> tipoMap = new HashMap<>();
         tipoMap.put("Escritorio", "escritorio");
         tipoMap.put("Portatil", "portatil");
@@ -217,6 +220,7 @@ public class ControllerProyecto{
         model.addAttribute("computers", computadoraService.getAllComputadoras());
         model.addAttribute("departamentosSelect",departamentosSelect);
         model.addAttribute("actualizarMap",actualizarMap);
+        model.addAttribute("estadoMap",estadoMap);
         model.addAttribute("mapSistema",mapSistema);
         model.addAttribute("tipoMap",tipoMap);
         model.addAttribute("dispositivoMap",dispositivoMap);
@@ -447,6 +451,9 @@ public class ControllerProyecto{
                 Map<String, Boolean> actualizarMap = new HashMap<>();
                 actualizarMap.put("Actualizada", true);
                 actualizarMap.put("No actualizada", false);
+                Map<String, Boolean> estadoMap = new HashMap<>();
+                estadoMap.put("Buen estado", true);
+                estadoMap.put("Mal stado", false);
                 Map<String, String> tipoMap = new HashMap<>();
                 tipoMap.put("Escritorio", "escritorio");
                 tipoMap.put("Portatil", "portatil");
@@ -466,6 +473,7 @@ public class ControllerProyecto{
                 model.addAttribute("computadorasSelect",computadorasSelect);
                 model.addAttribute("departamentosSelect",departamentosSelect);
                 model.addAttribute("actualizarMap",actualizarMap);
+                model.addAttribute("estadoMap",estadoMap);
                 model.addAttribute("mapSistema",mapSistema);
                 model.addAttribute("tipoMap",tipoMap);
                 model.addAttribute("dispositivoMap",dispositivoMap);
