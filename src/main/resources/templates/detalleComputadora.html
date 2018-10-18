@@ -34,6 +34,7 @@
                 <th>Ubicacion</th>
                 <th>Departamento</th>
                 <th>Nota</th>
+                <th>Estado</th>
                 <th></th>
               </tr>
               <tr>
@@ -52,6 +53,7 @@
                 <td th:text="${computadora.dominio}"></td>
                 <td th:text="${computadora.ubicacion}"></td>
                 <td th:text="${computadora.departamento.nombre}"></td>
+                <td th:text="${computadora.estado==true?'BUEN ESTADO' : 'MAL ESTADO'}" th:class="${computadora.estado==true? 'actualizada' : 'noactualizada'}" ></td>
                 <td th:text="${computadora.actualizada==true?'ACTUALIZADA' : 'NO ACTUALIZADA'}" th:class="${computadora.actualizada==true? 'actualizada' : 'noactualizada'}" ></td>
 
                 <td>
