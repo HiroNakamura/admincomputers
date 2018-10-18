@@ -66,6 +66,13 @@
 <!--<input type="text" id="iddepartamento" name="iddepartamento" th:value="*{iddepartamento}" />-->
 <span>Ubicaci&oacute;n:</span>
 <input type="text" id="ubicacion" name="ubicacion" th:value="*{ubicacion}" /><br/>
+
+<span>Estado</span>
+<select name="estado">
+    <option th:each="mapEst : ${estadoMap}"
+    th:value="${mapEst.value}" th:text="${mapEst.key}"/>
+  </select><br/>
+
 <span>Actualizada</span>
 <select name="actualizada">
     <option th:each="map : ${actualizarMap}"
