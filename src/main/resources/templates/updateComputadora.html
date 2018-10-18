@@ -37,6 +37,7 @@
                 <th>Administrador</th>
                 <th>Ubicacion</th>
                 <th>&Aacute;rea</th>
+                <th>Estado</th>
                 <th>Actualizada</th>
               </tr>
               <tr>
@@ -56,6 +57,7 @@
                 <td th:text="${computadorax.administrador}"></td>
                 <td th:text="${computadorax.ubicacion}"></td>
                 <td th:text="${computadorax.departamento.nombre}"></td>
+                <td th:text="${computadorax.estado==true?'BUEN ESTADO' : 'MAL ESTADO'}" th:class="${computadorax.estado==true? 'actualizada' : 'noactualizada'}" ></td>
                 <td th:text="${computadorax.actualizada==true?'ACTUALIZADA' : 'NO ACTUALIZADA'}" th:class="${computadorax.actualizada==true? 'actualizada' : 'noactualizada'}" ></td>
               </tr>
             </table>
@@ -115,6 +117,11 @@
   <!--<input type="text" id="iddepartamento" name="iddepartamento" th:value="*{iddepartamento}" />-->
   <span>Ubicaci&oacute;n:</span>
   <input type="text" id="ubicacion" name="ubicacion" th:value="*{ubicacion}" /><br/>
+  <span>Estado</span>
+<select name="estado">
+    <option th:each="mapEst : ${estadoMap}"
+    th:value="${mapEst.value}" th:text="${mapEst.key}"/>
+  </select><br/>
   <span>Actualizada</span>
   <select name="actualizada">
       <option th:each="map : ${actualizarMap}"
