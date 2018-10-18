@@ -487,10 +487,11 @@ public class ControllerProyecto{
     @RequestParam(name="administrador") String administrador, 
     @RequestParam(name="ubicacion") String ubicacion,
     @RequestParam(name="dispositivo") String dispositivo,
+    @RequestParam(name="estado") boolean estado,
     @RequestParam(name="actualizada") boolean actualizada,@RequestParam(name="departamento") long departamento){
         Computadora computadoraActualizada = null;
         try{
-            computadoraActualizada = computadoraService.updateComputadora(idcomputadora, bien,arrendado,asignado,ip,dns,red,operativo,maquina,tipo,modelo,dominio,administrador,ubicacion,dispositivo,actualizada,departamento);
+            computadoraActualizada = computadoraService.updateComputadora(idcomputadora, bien,arrendado,asignado,ip,dns,red,operativo,maquina,tipo,modelo,dominio,administrador,ubicacion,dispositivo,estado,actualizada,departamento);
         }catch(Exception ex){
             LOGGER.info("--Ha ocurrido un error:");
             ex.printStackTrace();
