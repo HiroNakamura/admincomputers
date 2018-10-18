@@ -53,7 +53,9 @@ public class Computadora  implements java.io.Serializable {
         @Column(name="actualizada")
         private boolean actualizada;
         @Column(name="dispositivo")
-        private String dispositivo; 
+        private String dispositivo;
+        @Column(name="estado")
+        private boolean estado; 
 
         //@OneToMany
         //@JoinColumn(name="idusuario")
@@ -217,13 +219,21 @@ public class Computadora  implements java.io.Serializable {
                 this.dispositivo=dispositivo;
         }
 
+        public boolean isEstado(){
+                return estado;
+        }
+
+        public void setEstado(boolean estado){
+                this.estado=estado;
+        }
+
 
         @Override
         public String toString(){
                 return "Equipo{ idcomputadora: "+idcomputadora+" , bien: "+bien+ " , arrendado: "+arrendado
                 +", asignado: "+asignado+" , ip: "+ip+" , dns: "+dns+", red: "+red + ", dominio: "+dominio
                 +" , operativo: "+operativo+" , tipo: "+tipo+", dipositivo:"+dispositivo
-                +" , máquina: "+maquina+" , modelo: "+modelo
+                +" , máquina: "+maquina+" , modelo: "+modelo + "estado:"+estado
                 +", administrador: "+administrador+",ubicacion:"+ubicacion+
                 ", actualizada:"+actualizada+ " }";
         }
