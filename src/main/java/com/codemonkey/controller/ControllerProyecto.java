@@ -588,6 +588,7 @@ public class ControllerProyecto{
         excel.write("Dominio");excel.write("\t");
         excel.write("Administrador");excel.write("\t");
         excel.write("Ubicacion");excel.write("\t");
+        excel.write("Estado");excel.write("\t");
         excel.write("Actualizada");excel.write("\t");
         excel.write("Departamento");excel.write("\t");
         excel.write("\n");
@@ -606,6 +607,7 @@ public class ControllerProyecto{
             excel.write(comp.getDominio()+"\t");
             excel.write(comp.getAdministrador()+"\t"); 
             excel.write(comp.getUbicacion()+"\t"); 
+            excel.write(comp.isEstado()? "Buen estado": "Mal estado"+"\t");
             excel.write(comp.isActualizada()? "Actualizada": "No actualizada"+"\t");
             excel.write(comp.getDepartamento().getNombre()+"\t");   excel.write("\n");
             cont++;
@@ -627,6 +629,7 @@ public class ControllerProyecto{
         excel.write("Dominio");excel.write("\t");
         excel.write("Administrador");excel.write("\t");
         excel.write("Ubicacion");excel.write("\t");
+        excel.write("Estado");excel.write("\t");
         excel.write("Actualizada");excel.write("\t");
         excel.write("Departamento");excel.write("\t");
         excel.write("\n");
@@ -646,6 +649,7 @@ public class ControllerProyecto{
             excel.write(comp.getDominio()+"\t");
             excel.write(comp.getAdministrador()+"\t"); 
             excel.write(comp.getUbicacion()+"\t"); 
+            excel.write(comp.isEstado()? "Buen estado": "Mal estado"+"\t");
             excel.write(comp.isActualizada()? "Actualizada": "No actualizada"+"\t");
             excel.write(comp.getDepartamento().getNombre()+"\t");   excel.write("\n");
             cont++;
@@ -754,6 +758,7 @@ public class ControllerProyecto{
                 html.write("<th style='background-color:white; color:black;'>Dominio</th>");
                 html.write("<th style='background-color:white; color:black;'>Administrador</th>");
                 html.write("<th style='background-color:white; color:black;'>Ubicacion</th>");
+                html.write("<th style='background-color:white; color:black;'>Estado</th>");
                 html.write("<th style='background-color:white; color:black;'>Actualizacion</th>");
                 html.write("<th style='background-color:white; color:black;'>Departamento</th>");
                 html.write("</tr>");
@@ -770,6 +775,13 @@ public class ControllerProyecto{
                             +"</td>" : "<td style='background-color: #A9E2F3 ; color:red; font-weight: bold;'>"
                             +cadena 
                             +"</td>";
+
+                            String cadenax = computadorasSelect.get(i).isEstado()? "Buen estado" : "Mal estado";
+                            String resultx = computadorasSelect.get(i).isEstado()? "<td style='background-color: #A9E2F3 ; color:green; font-weight: bold;'>"
+                            +cadenax
+                            +"</td>" : "<td style='background-color: #A9E2F3 ; color:red; font-weight: bold;'>"
+                            +cadenax 
+                            +"</td>";
     
                             
                             html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getBien() +"</td>");
@@ -785,6 +797,7 @@ public class ControllerProyecto{
                             html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getDominio() +"</td>");
                             html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getAdministrador() +"</td>");
                             html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getUbicacion() +"</td>");
+                            html.write(resultx);
                             html.write(result);
                             html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getDepartamento().getNombre() +"</td>");
                             
@@ -821,6 +834,7 @@ public class ControllerProyecto{
             html.write("<th style='background-color:white; color:black;'>Dominio</th>");
             html.write("<th style='background-color:white; color:black;'>Administrador</th>");
             html.write("<th style='background-color:white; color:black;'>Ubicacion</th>");
+            html.write("<th style='background-color:white; color:black;'>Estado</th>");
             html.write("<th style='background-color:white; color:black;'>Actualizacion</th>");
             html.write("<th style='background-color:white; color:black;'>Departamento</th>");
             html.write("</tr>");
@@ -838,6 +852,13 @@ public class ControllerProyecto{
                         +cadena 
                         +"</td>";
 
+                        String cadenax = computadorasSelect.get(i).isEstado()? "Buen estado" : "Mal estado";
+                        String resultx = computadorasSelect.get(i).isEstado()? "<td style='background-color: #A9E2F3 ; color:green; font-weight: bold;'>"
+                        +cadenax
+                        +"</td>" : "<td style='background-color: #A9E2F3 ; color:red; font-weight: bold;'>"
+                        +cadenax 
+                        +"</td>";
+
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+usuarios.get(j).getUsuario()+" : "+usuarios.get(j).getCargo()+"</td>");
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getBien() +"</td>");
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getArrendado() +"</td>");
@@ -852,6 +873,7 @@ public class ControllerProyecto{
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getDominio() +"</td>");
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getAdministrador() +"</td>");
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getUbicacion() +"</td>");
+                        html.write(resultx);
                         html.write(result);
                         html.write("<td style='background-color: #A9E2F3 ; color:black;'>"+computadorasSelect.get(i).getDepartamento().getNombre() +"</td>");
                         
