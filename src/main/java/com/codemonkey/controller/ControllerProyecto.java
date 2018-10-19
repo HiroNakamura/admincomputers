@@ -739,7 +739,7 @@ public class ControllerProyecto{
         if(usuarios.size() < computadorasSelect.size() ){
             try (FileWriter html = new FileWriter(file)) {
                 html.write("<!DOCTYPE html>" +"<html lang='es'>"
-                        + "<head> <meta charset='utf-8'> <title>Registro de computadoras</title>" 
+                        + "<head> <meta charset='utf-8'> <title>Registro de dispositivos</title>" 
                         +"</head><body style='background-color:#edefee;color:#ad0505;'>");
                 html.write("<h1 align='center' style='background-color: white;'>Registro de computadoras</h1>");
                 html.write("<br/><p>Total registros:"+computadorasSelect.size()+"</p>");
@@ -814,7 +814,7 @@ public class ControllerProyecto{
         
         try (FileWriter html = new FileWriter(file)) {
             html.write("<!DOCTYPE html>" +"<html lang='es'>"
-                    + "<head> <meta charset='utf-8'> <title>Registro de computadoras</title>" 
+                    + "<head> <meta charset='utf-8'> <title>Registro de dispositivos</title>" 
                     +"</head><body style='background-color:#edefee;color:#ad0505;'>");
             html.write("<h1 align='center' style='background-color: white;'>Registro de computadoras</h1>");
             html.write("<br/><p>Total registros:"+computadorasSelect.size()+"</p>");
