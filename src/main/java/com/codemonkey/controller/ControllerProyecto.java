@@ -370,6 +370,19 @@ public class ControllerProyecto{
         return "redirect:/usuarios";
     }
 
+
+    @GetMapping("/detalleComputadoras")
+    public String getDetalleComputadoras(@RequestParam(name="idcomputadora", required=true) long idcomputadora, Model model){
+        Computadora computadoraDetalle = computadoraService.getComputadoraById(idcomputadora);
+        if(computadoraDetalle != null){
+            LOGGER.info("--Has entrado a detalle de computadora:"+computadoraDetalle);
+            model.addAttribute("computadora",computadoraDetalle); 
+            model.addAttribute("detalle",this.detalle); 
+            return "detalleComputadora";
+        }
+        return "redirect:/computadoras";
+    }
+
     /*Editar usuario*/
     @GetMapping("/updateUsuario")
     public String updateUsuario(@RequestParam(name="idusuario", required=true) long idusuario, Model model){
