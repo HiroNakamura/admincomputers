@@ -42,13 +42,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Optional;
 
-
+import com.codemonkey.utils.Utils;
+import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
 public class ControllerProyecto{
 
     private final Logger LOGGER = LoggerFactory.getLogger(ControllerProyecto.class);
+
+    
+
 
     /*Paginacion*/
     private static final int BUTTONS_TO_SHOW = 3;
@@ -97,9 +101,12 @@ public class ControllerProyecto{
     /*HTML*/
     //http://localhost:8080/home
     @GetMapping("/home")
-    public String goHome(Model model){
+    public String goHome(Model model, HttpServletRequest request){
         LOGGER.info("Home del sitio");
+        String utils = Utils.getClientIp(request);
+        LOGGER.info("IP obtenida: "+utils);
         model.addAttribute("home",this.home);
+        model.addAttribute("ip",utils);
         return "home";
     }
 
