@@ -36,6 +36,7 @@
                 <th>Administrador</th>
                 <th>Ubicacion</th>
                 <th>&Aacute;rea</th>
+                <th>Estado</th>
                 <th>Actualizada</th>
                 <th></th>
                 <th></th>
@@ -58,6 +59,7 @@
                 <td th:text="${computer?.administrador}"></td>
                 <td th:text="${computer?.ubicacion}"></td>
                 <td th:text="${computer?.departamento.nombre}"></td>
+                <td th:text="${computer?.estado==true?'BUEN ESTADO' : 'MAL ESTADO'}" th:class="${computer?.estado==true? 'actualizada' : 'noactualizada'}" ></td>
                 <td th:text="${computer?.actualizada==true?'ACTUALIZADA' : 'NO ACTUALIZADA'}" th:class="${computer?.actualizada==true? 'actualizada' : 'noactualizada'}" ></td>
                 <td>
                     <a href="#" onclick="return editar()" th:href="@{/updateComputadora?idcomputadora=__${computer?.idcomputadora}__}">
