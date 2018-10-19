@@ -378,7 +378,7 @@ public class ControllerProyecto{
             LOGGER.info("--Has entrado a detalle de computadora:"+computadoraDetalle);
             model.addAttribute("computadora",computadoraDetalle); 
             model.addAttribute("detalle",this.detalle); 
-            return "detalleComputadora";
+            return "detalleComputadoras";
         }
         return "redirect:/computadoras";
     }
