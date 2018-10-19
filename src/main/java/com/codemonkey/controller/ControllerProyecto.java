@@ -51,8 +51,6 @@ public class ControllerProyecto{
 
     private final Logger LOGGER = LoggerFactory.getLogger(ControllerProyecto.class);
 
-    
-
 
     /*Paginacion*/
     private static final int BUTTONS_TO_SHOW = 3;
@@ -103,10 +101,15 @@ public class ControllerProyecto{
     @GetMapping("/home")
     public String goHome(Model model, HttpServletRequest request){
         LOGGER.info("Home del sitio");
-        String utils = Utils.getClientIp(request);
-        LOGGER.info("IP obtenida: "+utils);
+        String ip = Utils.getClientIp(request);
+        List<Computadora> buscarComputadoraByIp = computadoraCrudService.computadorasByIp(ip);
+        LOGGER.info("IP obtenida: "+ip);
         model.addAttribute("home",this.home);
-        model.addAttribute("ip",utils);
+        model.addAttribute("ip",ip);
+        if(buscarComputadoraByIp.size()>0){
+            LOGGER.info("Dispositivo: "+buscarComputadoraByIp);
+        }
+        
         return "home";
     }
 
