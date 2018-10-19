@@ -67,7 +67,7 @@
   <table class="table table-dark table-hover" align="center" border="0" dt:table="true">
         <thead >
             <tr>
-                <th>No. bien</th>
+                <th>No. bien ffff</th>
                 <th>No. arrendamiento</th>
                 <th>No. asignado</th>
                 <th>Ip</th>
@@ -90,7 +90,19 @@
         </thead>
         <tbody>
             <tr th:each="computer : ${computers}" id="actualizada">
-                <td th:text="${computer?.bien}"></td>
+                <td>
+                        <!--<span th:text="${computer?.bien}"></span>-->
+            
+            <a id="detalle" href="#" th:href="@{/detalleComputadoras?idcomputadora=__${computer?.idcomputadora}__}">
+                <button type="button" class="btn btn-link"><span th:text="${computer?.bien}"></span></button>
+
+                </a>         
+
+                </td>
+
+
+
+
                 <td th:text="${computer?.arrendado}"></td>
                 <td th:text="${computer?.asignado}"></td>
                 <td th:text="${computer?.ip}"></td>
