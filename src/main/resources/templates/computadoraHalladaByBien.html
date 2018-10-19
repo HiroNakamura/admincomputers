@@ -14,10 +14,9 @@
         <div class="jumbotron text-center">
             <h1 th:text="${mensaje}"></h1>
             <p class="alert alert-success" th:text="${tamComp}"></p>
-            <p class="alert alert-success" th:text="${tamUser}"></p>
         </div>
-        <!-- Computadora x bien -->
-            <div th:if="${!computadorasHalladasByBien.isEmpty()}">
+        <!-- Usuario x bien -->
+            <div th:if="${!computadorasHalladasByIp.isEmpty()}">
             <table class="table table-dark table-hover" align="center" border="0" dt:table="true">
                 <thead>
                     <tr>
@@ -43,7 +42,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="computer : ${computadorasHalladasByBien}">
+                    <tr th:each="computer : ${computadorasHalladasByIp}">
                         <td th:text="${computer?.bien}"></td>
                 <td th:text="${computer?.arrendado}"></td>
                 <td th:text="${computer?.asignado}"></td>
@@ -77,6 +76,8 @@
                 </tbody>
             </table>
             <script>
+
+    
                 function editar(){
                  let entrada = false;
                  let seguro = confirm("Seguro quieres editar registro?");
@@ -105,58 +106,11 @@
                 }
        </script>
         </div>
-        <div th:if="${computadorasHalladasByBien.isEmpty()}">
-            <p class="text-primary" th:text="'No se ha encontrado la computadora por numero de bien ' + ${computadorasHalladasByBien.isEmpty()? 'Lista vacia' : ''}"></p>
+        <div th:if="${computadorasHalladasByIp.isEmpty()}">
+            <p class="text-primary" th:text="'No se ha encontrado la computadora por numero de IP ' + ${computadorasHalladasByIp.isEmpty()? 'Lista vacia' : ''}"></p>
          </div>
-         <!-- Computadora x bien -->
-<hr/>
+         <!-- Usuario x bien -->
 
-<!-- Usuario x bien -->
-
-<div th:if="${!usuariosHalladosByComputadoraBien.isEmpty()}">
-    <table class="table table-dark table-hover" align="center" border="0" dt:table="true">
-        <thead>
-            <tr>
-                <th>Foto</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Usuario</th>
-                <th>Password</th>
-                <th>Cargo</th>
-                <th>Departamento</th>
-                <th>Computadora</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="user : ${usuariosHalladosByComputadoraBien}">
-                <td>
-<img class="img-fluid" id="imguser" th:with="id=${user.usuario}, ruta = ${'/img/users/'}" th:src="@{${ruta+id} + '.jpg'}" width="100" height="100"/>
-<label  th:with="apellidos=${user.apellidos=='NO ESPECIFICADO'? '' : user.apellidos}" class="text-centre" th:text="${user.nombre +' '+ apellidos}"></label>
-                </td>
-                <td th:text="${user?.nombre}"></td>
-                <td th:text="${user?.apellidos}"></td>
-                <td th:text="${user?.usuario}"></td>
-                <td>**************</td>
-                <td th:text="${user?.cargo}"></td>
-                <td th:text="${user?.departamento.nombre}"></td>
-                <td>
-                    <a id="detalle" href="#" th:href="@{/detalleComputadora?idcomputadora=__${user.computadora.idcomputadora}__}">
-                        <button type="button" class="btn btn-link"><span th:text="${user?.computadora.bien}"></span></button>
-
-                        </a>
-                </td>
-                
-               
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div th:if="${usuariosHalladosByComputadoraBien.isEmpty()}">
-    <p class="text-primary" th:text="'No se ha encontrado el usuario por numero de bien ' + ${usuariosHalladosByComputadoraBien.isEmpty()? 'Lista vacia' : ''}"></p>
- </div>
- <!-- Usuario x bien -->
-
- 
 
         <div th:include="layout/footer"></div>
     </body>
