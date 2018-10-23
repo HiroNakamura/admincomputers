@@ -25,14 +25,20 @@
                             <th>No. bien</th>
                             <th>No. arrendamiento</th>
                             <th>Ip</th>
+                            <th>Dispositivo</th>
+                            <th>Modelo</th>
+                            <th>Operativo</th>
                             <th>Piso</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="data in datos" ng-if="data.dispositivo == 'Computadora'">
+                        <tr ng-repeat="data in datos | filter: { dispositivo: 'Computadora' }">
                             <td>{{ data.bien }}</td>
                             <td>{{ data.arrendado }}</td>
                             <td>{{ data.ip }}</td>
+                            <td>{{ data.dispositivo }}</td>
+                            <td>{{ data.modelo }}</td>
+                            <td>{{ data.operativo }}</td>
                             <td>{{ data.ubicacion }}</td>
                         </tr>
                     </tbody>
