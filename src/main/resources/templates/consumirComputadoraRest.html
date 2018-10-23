@@ -18,6 +18,7 @@
  <body>
         <div ng-controller="appControllerCompu">
                 <h1 align="center">{{ titulo }}</h1>
+                <p>{{ tam }}</p>
                 <div class="table-responsive">
                 <table class="table table-dark table-striped">
                     <thead >
@@ -29,6 +30,8 @@
                             <th>Modelo</th>
                             <th>Operativo</th>
                             <th>Piso</th>
+                            <th>Estado</th>
+                            <th>Nota</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +43,22 @@
                             <td>{{ data.modelo }}</td>
                             <td>{{ data.operativo }}</td>
                             <td>{{ data.ubicacion }}</td>
+                            <td>
+                                <div ng-if="data.estado=='true'">
+                                    BUEN ESTADO
+                                </div>
+                                <div ng-if="data.estado=='false'">
+                                        MAL ESTADO
+                                    </div>
+                            </td>
+                            <td>
+                                    <div ng-if="data.actualizada=='true'">
+                                            ACTUALIZADA
+                                    </div>
+                                    <div ng-if="data.actualizada=='FALSE'">
+                                            NO ACTUALIZADA
+                                    </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table></div>
