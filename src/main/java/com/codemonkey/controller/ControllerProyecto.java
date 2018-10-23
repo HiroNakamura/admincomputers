@@ -764,7 +764,7 @@ public class ControllerProyecto{
                 html.write("<!DOCTYPE html>" +"<html lang='es'>"
                         + "<head> <meta charset='utf-8'> <title>Registro de dispositivos</title>" 
                         +"</head><body style='background-color:#edefee;color:#ad0505;'>");
-                html.write("<h1 align='center' style='background-color: white;'>Registro de computadoras</h1>");
+                html.write("<h1 align='center' style='background-color: white;'>Registro de dispositivos</h1>");
                 html.write("<br/><p>Total registros:"+computadorasSelect.size()+"</p>");
                 html.write("<table id='tablaUsuario' align='center' border='0' dt:table='true'><tr>");
                 html.write("<tr>");
@@ -839,7 +839,7 @@ public class ControllerProyecto{
             html.write("<!DOCTYPE html>" +"<html lang='es'>"
                     + "<head> <meta charset='utf-8'> <title>Registro de dispositivos</title>" 
                     +"</head><body style='background-color:#edefee;color:#ad0505;'>");
-            html.write("<h1 align='center' style='background-color: white;'>Registro de computadoras</h1>");
+            html.write("<h1 align='center' style='background-color: white;'>Registro de dispositivos</h1>");
             html.write("<br/><p>Total registros:"+computadorasSelect.size()+"</p>");
             html.write("<table id='tablaUsuario' align='center' border='0' dt:table='true'><tr>");
             html.write("<tr>");
@@ -954,7 +954,7 @@ public class ControllerProyecto{
 
     //*********************************************
 
-    /*REST*/
+    /*REST con jQuery*/
     //http://localhost:8080/departamentosTable
     @GetMapping("/departamentosTable")
     public String getDepartamentosTable(){
@@ -977,13 +977,22 @@ public class ControllerProyecto{
     }
 
 
-    /*Consumir REST*/
+    /*Consumir REST con Angular JS*/
     //http://localhost:8080/consumir/consumirDepartamentoRest
     @GetMapping("/consumir/consumirDepartamentoRest")
     public ModelAndView consumirDepartamentoRest(){
+        LOGGER.info("--Has entrado a consumirDepartamentoRest");
         ModelAndView mav = new ModelAndView("consumirDepartamentoRest");
         return mav;
     }
+
+     //http://localhost:8080/consumir/consumirComputadoraRest
+     @GetMapping("/consumir/consumirComputadoraRest")
+     public ModelAndView consumirComputadoraRest(){
+        LOGGER.info("--Has entrado a consumirComputadoraRest");
+         ModelAndView mav = new ModelAndView("consumirComputadoraRest");
+         return mav;
+     }
 
 
 
