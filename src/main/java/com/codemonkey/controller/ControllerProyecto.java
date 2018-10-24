@@ -994,6 +994,13 @@ public class ControllerProyecto{
          return mav;
      }
 
+     //http://localhost:8080/consumir/consumirComputadoraRest
+     @GetMapping("/consumir/consumirUsuarioRest")
+     public ModelAndView consumirUsuarioRest(){
+        LOGGER.info("--Has entrado a consumirUsuarioRest");
+         ModelAndView mav = new ModelAndView("consumirUsuarioRest");
+         return mav;
+     }
 
 
 }
