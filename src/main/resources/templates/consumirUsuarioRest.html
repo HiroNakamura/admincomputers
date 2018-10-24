@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="es" ng-app="app">
+ <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta http-equiv="x-ua-compatible" content="ie-edge"/>
+        <script type="text/javascript" src="/js/angular.js"></script>
+ <script type="text/javascript" src="/js/angular_resource.js"></script>
+ <script type="text/javascript" src="/js/app.js"></script>
+
+ 
+ <link href='//fonts.googleapis.com/css?family=Chakra Petch&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+ <script type="text/javascript" src="/js/funciones.js"></script>
+        <link rel="stylesheet" type="text/css" media="all" href="/css/estilos.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+        <div ng-controller="appControllerUser">
+                <h1 align="center" style="font-family: Chakra Petch;">{{ titulo }}</h1>
+                <p>{{ tam }}</p>
+                <div class="table-responsive">
+                <table class="table table-dark table-striped" style="font-family: Chakra Petch">
+                    <thead >
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Usuario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in datos">
+                            <td>{{ data.nombre }}   {{ dat.apellidos }}</td>
+                            <td>{{ data.usuario }}</td>
+                            
+                        </tr>
+                    </tbody>
+                </table></div>
+
+     </div>
+
+ </body>
+</html>
