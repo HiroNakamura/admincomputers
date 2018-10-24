@@ -18,6 +18,16 @@ app.controller("appControllerCompu", function ($scope, $http, dataResource) {
     $scope.datosResource = dataResource.get();
 })
 
+app.controller("appControllerUser", function ($scope, $http, dataResource) {
+    $http.get('http://localhost:8080/rest/usuariosRestt').success(function (data) {
+        $scope.datos = data;
+        $scope.titulo ="Usuarios";
+        $scope.tam = "No. registros:" +$scope.datos.length;
+    });
+    $scope.datosResource = dataResource.get();
+})
+
+
 app.factory("dataResource", function ($resource) {
     return $resource("http://localhost:8080/rest/departamentosRest",
         {},
