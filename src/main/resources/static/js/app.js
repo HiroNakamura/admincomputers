@@ -19,7 +19,7 @@ app.controller("appControllerCompu", function ($scope, $http, dataResource) {
 })
 
 app.controller("appControllerUser", function ($scope, $http, dataResource) {
-    $http.get('http://localhost:8080/rest/usuariosRestt').success(function (data) {
+    $http.get('http://localhost:8080/rest/usuariosRest').success(function (data) {
         $scope.datos = data;
         $scope.titulo ="Usuarios";
         $scope.tam = "No. registros:" +$scope.datos.length;
