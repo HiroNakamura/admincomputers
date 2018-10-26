@@ -28,12 +28,18 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Usuario</th>
+                            <th>Cargo</th>
+                            <th>Computadora</th>
+                            <th>Departamento</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="data in datos">
-                            <td>{{ data.nombre }}   {{ data.apellidos }}</td>
+                            <td>{{ data.nombre }} {{ data.apellidos }}</td>
                             <td>{{ data.usuario }}</td>
+                            <td>{{ data.cargo }}</td>
+                            <td>{{ data.computadora.bien }} </td>
+                            <td>{{ data.departamento.nombre}}</td>
                             
                         </tr>
                     </tbody>
