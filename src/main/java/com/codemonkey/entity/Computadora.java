@@ -4,15 +4,27 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import org.hibernate.annotations.GenericGenerator;
+//import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
+//import javax.persistence.OneToMany;
+//import javax.persistence.ManyToOne;
+//import javax.persistence.JoinColumn;
 
-import java.util.List;
+//import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.Data;
+import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@AllArgsConstructor
+@ToString
+@NoArgsConstructor
 @Entity(name="Computadora")
 @Table(name = "computadora")
 public class Computadora  implements java.io.Serializable {
@@ -23,39 +35,39 @@ public class Computadora  implements java.io.Serializable {
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         //@GenericGenerator(name = "native", strategy = "native")
         @Column(name="idcomputadora")
-        public long idcomputadora;
+        @Getter @Setter public long idcomputadora;
         @Column(name="bien")
-        private String bien;
+        @Getter @Setter private String bien;
         @Column(name="arrendado")
-        private String arrendado;
+        @Getter @Setter private String arrendado;
         @Column(name="asignado")
-        private String asignado;
+        @Getter @Setter private String asignado;
         @Column(name="ip")
-        private String ip;
+        @Getter @Setter private String ip;
         @Column(name="dns")
-        private String dns;
+        @Getter @Setter private String dns;
         @Column(name="red")
-        private String red;
+        @Getter @Setter private String red;
         @Column(name="operativo")
-        private String operativo;
+        @Getter @Setter private String operativo;
         @Column(name="maquina")
-        private String maquina;
+        @Getter @Setter private String maquina;
         @Column(name="tipo")
-        private String tipo;
+        @Getter @Setter private String tipo;
         @Column(name="modelo")
-        private String modelo;
+        @Getter @Setter private String modelo;
         @Column(name="dominio")
-        private String dominio;
+        @Getter @Setter private String dominio;
         @Column(name="administrador")
-        private String administrador;
+        @Getter @Setter private String administrador;
         @Column(name="ubicacion")
-        private String ubicacion;
+        @Getter @Setter private String ubicacion;
         @Column(name="actualizada")
-        private boolean actualizada;
+        @Getter @Setter private boolean actualizada;
         @Column(name="dispositivo")
-        private String dispositivo;
+        @Getter @Setter private String dispositivo;
         @Column(name="estado")
-        private boolean estado; 
+        @Getter @Setter private boolean estado; 
 
         //@OneToMany
         //@JoinColumn(name="idusuario")
@@ -63,10 +75,10 @@ public class Computadora  implements java.io.Serializable {
 
         //@ManyToOne
         //@JoinColumn(name="iddepartamento")
-        public Departamento departamento;
+        @Getter @Setter public Departamento departamento;
 
 
-        public Computadora(){}
+        /*public Computadora(){}
         
         public void setIdComputadora(long idcomputadora){
                 this.idcomputadora=idcomputadora;
@@ -82,7 +94,7 @@ public class Computadora  implements java.io.Serializable {
 
         public void setDepartamento(Departamento departamento){
                 this.departamento=departamento;
-        }
+        }*/
 
         /*
         public List<Usuario> getUsuarios(){
@@ -94,7 +106,7 @@ public class Computadora  implements java.io.Serializable {
         }*/
 
 
-        public void setBien(String bien){
+        /*public void setBien(String bien){
                 this.bien=bien;
         }
         
@@ -236,6 +248,6 @@ public class Computadora  implements java.io.Serializable {
                 +" , máquina: "+maquina+" , modelo: "+modelo + "estado:"+estado
                 +", administrador: "+administrador+",ubicacion:"+ubicacion+
                 ", actualizada:"+actualizada+ " }";
-        }
+        }*/
         
 }
