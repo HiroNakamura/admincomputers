@@ -6,10 +6,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import org.hibernate.annotations.GenericGenerator;
+//import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.Data;
+import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@AllArgsConstructor
+@ToString
+@NoArgsConstructor
 @Entity(name="Usuario")
 @Table(name = "usuario")
 public class Usuario implements java.io.Serializable {
@@ -21,27 +34,24 @@ public class Usuario implements java.io.Serializable {
         @Column(name="idusuario")
         public long idusuario;
         @Column(name="nombre")
-        private String nombre;
+        @Getter @Setter private String nombre;
         @Column(name="apellidos")
-        private String apellidos;
+        @Getter @Setter private String apellidos;
         @Column(name="usuario")
-        private String usuario;
+        @Getter @Setter private String usuario;
         @Column(name="password")
-        private String password;
+        @Getter @Setter private String password;
         @Column(name="cargo")
-        public String cargo;
+        @Getter @Setter public String cargo;
 
         @ManyToOne
         @JoinColumn(name="idcomputadora")
-        private Computadora computadora;
+        @Getter @Setter private Computadora computadora;
 
         @ManyToOne
         @JoinColumn(name="iddepartamento")
-        private Departamento departamento;
+        @Getter @Setter private Departamento departamento;
         
-        
-        public Usuario(){}
-
         
         public void setIdUsuario(long idusuario){
                 this.idusuario=idusuario;
@@ -51,6 +61,7 @@ public class Usuario implements java.io.Serializable {
                 return idusuario;
         }
 
+        /*public Usuario(){}
         public void setComputadora(Computadora computadora){
                 this.computadora=computadora;
         }
@@ -115,5 +126,5 @@ public class Usuario implements java.io.Serializable {
                 +", usuario: "+usuario+" , password: "+password+",cargo: "+cargo+"}";
                 //" , departamento: "+departamento+", computadora: "+computadora+"}";
         }
-              
+             */ 
 }
