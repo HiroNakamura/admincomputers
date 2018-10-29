@@ -2,19 +2,29 @@ package com.codemonkey.entity;
 
 
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
+//import javax.persistence.JoinColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import org.hibernate.annotations.GenericGenerator;
+//import javax.persistence.OneToMany;
+//import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
-import java.util.List;
+//import java.util.List;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.Data;
+import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 
-
+@Data
+@AllArgsConstructor
+@ToString
+@NoArgsConstructor
 @Entity(name="Departamento")
 @Table(name = "departamento")
 public class Departamento implements java.io.Serializable{
@@ -25,11 +35,11 @@ public class Departamento implements java.io.Serializable{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     //@GenericGenerator(name = "native", strategy = "native")
     @Column(name="iddepartamento")
-    public long iddepartamento;
+    @Getter @Setter public long iddepartamento;
     @Column(name="nombre")
-    public String nombre;
+    @Getter @Setter public String nombre;
     @Column(name="responsable")
-    private String responsable;
+    @Getter @Setter private String responsable;
 
     /*@OneToMany
     @JoinColumn(name="idusuario")
@@ -41,7 +51,7 @@ public class Departamento implements java.io.Serializable{
     private List<Computadora> computadoras;
     */
 
-    public Departamento(){}
+    /*public Departamento(){}
 
     public long getIdDepartamento(){
         return iddepartamento;
@@ -49,7 +59,7 @@ public class Departamento implements java.io.Serializable{
 
     public void setIdDepartamento(long iddepartamento){
         this.iddepartamento=iddepartamento;
-    }
+    }*/
 
     /*
     public List<Computadora> getComputadoras(){
@@ -68,7 +78,7 @@ public class Departamento implements java.io.Serializable{
         this.usuarios=usuarios;
     }*/
 
-    public void setNombre(String nombre){
+   /* public void setNombre(String nombre){
         this.nombre=nombre;
     }
     
@@ -90,5 +100,5 @@ public class Departamento implements java.io.Serializable{
         return "Departamento{ id: "+iddepartamento+", nombre: "+nombre 
         +", responsable: "+responsable+"}";
         //+", usuarios: "+usuarios+ ", computadoras:"+computadoras+"}";
-    }
+    }*/
 }
