@@ -27,7 +27,10 @@ import com.codemonkey.service.DepartamentoService;
 import com.codemonkey.entity.Usuario;
 import com.codemonkey.service.UsuarioService;
 
-//import org.springframework.web.bind.annotation.CrossOrigin;
+import com.codemonkey.service.DepartamentoRestService;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+
 
 @RestController
 @RequestMapping("/rest")
@@ -48,6 +51,11 @@ public class ControllerRestProyecto{
     private UsuarioService usuarioService;
 
 
+    @Autowired
+    @Qualifier("departamentoRestService")
+    private DepartamentoRestService departamentoRestService;
+
+
     /*CRUD Computadora*/
     //http://localhost:8080/rest/computadorasRest
     @GetMapping("/computadorasRest")
@@ -62,7 +70,6 @@ public class ControllerRestProyecto{
         LOGGER.info("--Has entrado a http://localhost:8080/rest/departamentosRest");
         return departamentoService.getAllDepartamentos();
     }
-
 
 
     /*CRUD Usuario*/
@@ -130,6 +137,16 @@ public class ControllerRestProyecto{
 
         return encontrado;
     }
+
+
+    /*Angular CLI*/
+    //http://localhost:8080/rest/departamentosRestAng
+    @GetMapping("/departamentosRestAng")
+    public List<Departamento> getRestDepartamentos() {
+        return departamentoRestService.getAllDepartamentos();
+    }
+
+    
 
 
 }
