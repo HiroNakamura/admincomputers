@@ -6,5 +6,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import com.codemonkey.entity.Departamento;
 
 @RepositoryRestResource
-interface DepartamentoRestRepository extends JpaRepository<Departamento, Long> {
+public interface DepartamentoRestRepository extends JpaRepository<Departamento, Long> {
 }
