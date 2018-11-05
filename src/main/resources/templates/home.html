@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
-     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta http-equiv="x-ua-compatible" content="ie-edge"/>  
         <title>Bienvenido</title>
-
         <th:block th:include="layout/header"></th:block>
-
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -17,6 +16,26 @@
             <h1 th:text="${home}"></h1>
             <p>Sistema de administración.</p> 
             <p th:text="${ip}"></p>
+            <div>
+                <h2>Datatables</h2>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#" th:href="@{/departamentosTable}">Departamentos</a></li>
+                    <li class="list-group-item"><a href="#" th:href="@{/usuariosTable}">Usuarios</a></li>
+                    <li class="list-group-item"><a href="#" th:href="@{/computadorasTable}">Computadoras</a></li>
+                </ul>
+                <h2>Angular JS</h2>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#" th:href="@{/consumir/consumirDepartamentoRest}">Departamentos</a></li>
+                    <li class="list-group-item"><a href="#" th:href="@{/consumir/consumirUsuarioRest}">Usuarios</a></li>
+                    <li class="list-group-item"><a href="#" th:href="@{/consumir/consumirComputadoraRest}">Computadoras</a></li>
+                </ul>
+                <h2>Vue JS</h2>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#" th:href="@{/departamentosTable}">Departamentos</a></li>
+                    <li class="list-group-item"><a href="#" th:href="@{/consumir/consumirUsuarioVuejs}">Usuarios</a></li>
+                    <li class="list-group-item"><a href="#" th:href="@{/departamentosTable}">Computadoras</a></li>
+                </ul>
+            </div>
           </div>
         <div th:include="layout/footer"></div>
     </body>
