@@ -33,11 +33,6 @@
 
 <div id="app">
 {{ usuarios }}
-
-<div v-for="usuario in usuarios">
-  <span>  {{ usuario.nombre }}  </span>
-</div>
-
 </div>
 <script>
 new Vue({
@@ -54,6 +49,38 @@ new Vue({
   }
 })
 </script>
+
+<div id="my_app">
+    <div v-for="item in users">
+        {{ item.nombre}}
+      </div>
+</div>
+
+<script>
+var my_app = new Vue({
+    el:'#my_app',
+    data(){
+        return {
+            users:[]
+        };
+    },
+    methods:{
+        getUsuarios(){
+            axios
+            .get('http://localhost:8080/rest/usuariosRest')
+            .then((data) => {
+                this.users = data.data
+            });
+        }
+    },
+    mounted(){
+        this.getUsuarios()
+    },
+});
+</script>
+
+
+
     <a href="#" th:href="@{/home}" title="regreso">Home</a>
 <!--<div th:include="layout/footer"></div>-->
 </body>
