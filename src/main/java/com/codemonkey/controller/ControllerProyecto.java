@@ -1009,4 +1009,16 @@ public class ControllerProyecto{
          return "consumirUsuarioVuejs";
      }
 
+     //http://localhost:8080/consumir/consumirDepartamentoVuejs
+     @GetMapping("/consumir/consumirDepartamentoVuejs")
+     public String consumirDepartamentoVuejs(){
+         return "consumirDepartamentoVuejs";
+     }
+
+     //http://localhost:8080/consumir/consumirComputadoraVuejs
+     @GetMapping("/consumir/consumirComputadoraVuejs")
+     public String consumirComputadoraVuejs(){
+         return "consumirComputadoraoVuejs";
+     }
+
 }
