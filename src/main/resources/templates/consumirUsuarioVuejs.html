@@ -50,7 +50,7 @@ new Vue({
   mounted () {
     axios
       .get('http://localhost:8080/rest/usuariosRest')
-      .then(response => (this.info = response))
+      .then(response => (this.usuarios = response))
   }
 })
 </script>
