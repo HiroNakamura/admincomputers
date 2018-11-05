@@ -1018,7 +1018,7 @@ public class ControllerProyecto{
      //http://localhost:8080/consumir/consumirComputadoraVuejs
      @GetMapping("/consumir/consumirComputadoraVuejs")
      public String consumirComputadoraVuejs(){
-         return "consumirComputadoraoVuejs";
+         return "consumirComputadoraVuejs";
      }
 
 }
