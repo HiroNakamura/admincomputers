@@ -35,7 +35,7 @@ import com.codemonkey.repository.ComputadoraRepositoryPage;
 import com.codemonkey.model.PagerModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.servlet.ModelAndView;
+//import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -994,7 +994,7 @@ public class ControllerProyecto{
          return mav;
      }
 
-     //http://localhost:8080/consumir/consumirComputadoraRest
+     //http://localhost:8080/consumir/consumirUsuarioRest
      @GetMapping("/consumir/consumirUsuarioRest")
      public ModelAndView consumirUsuarioRest(){
         LOGGER.info("--Has entrado a consumirUsuarioRest");
@@ -1002,5 +1002,11 @@ public class ControllerProyecto{
          return mav;
      }
 
+     /*REST usando vuejs */
+     //http://localhost:8080/consumir/consumirUsuarioVuejs
+     @GetMapping("/consumir/consumirUsuarioVuejs")
+     public String consumirUsuarioVuejs(){
+         return "consumirUsuarioVuejs";
+     }
 
 }
