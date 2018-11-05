@@ -31,9 +31,10 @@
 
 
 
-<div id="app">
+<!--<div id="app">
 {{ usuarios }}
 </div>
+-->
 <script>
 new Vue({
   el: '#app',
@@ -51,9 +52,35 @@ new Vue({
 </script>
 
 <div id="my_app">
-    <div v-for="item in users">
-        {{ item.nombre}}
-      </div>
+    
+    <!--<div v-for="item in users">
+        {{ item.nombre}}   {{ item.apellidos }}   : {{ item.cargo }}
+    </div>-->
+
+
+    <div class="table-responsive">
+        <table class="table table-dark table-striped" style="font-family: Chakra Petch">
+            <thead >
+                <tr>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>Cargo</th>
+                    <th>Computadora</th>
+                    <th>Departamento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="data in users">
+                    <td>{{ data.nombre }} {{ data.apellidos }}</td>
+                    <td>{{ data.usuario }}</td>
+                    <td>{{ data.cargo }}</td>
+                    <td>{{ data.computadora.bien }} </td>
+                    <td>{{ data.departamento.nombre}}</td>
+                    
+                </tr>
+            </tbody>
+        </table></div>
+
 </div>
 
 <script>
