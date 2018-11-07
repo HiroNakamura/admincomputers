@@ -10,6 +10,12 @@ app.controller("appControllerDepto", function ($scope, $http, dataResource) {
     $scope.datosResource = dataResource.get();
 })
 
+app.config(function($routeProvider,$locationProvider) {
+    $routeProvider
+    .when("/about", {
+        templateUrl : "Templates/about.html"
+    })
+});
 
 app.controller("appControllerCompu", function ($scope, $http, dataResource) {
     $http.get('http://localhost:8080/rest/computadorasRest').success(function (data) {
