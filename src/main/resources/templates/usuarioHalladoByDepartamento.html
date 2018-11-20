@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+            <meta http-equiv="x-ua-compatible" content="ie-edge"/>
+        <title>Usuario hallado</title>
+        <th:block th:include="layout/header"></th:block>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="jumbotron text-center">
+            <h1 th:text="${mensaje}"></h1>
+            <p class="alert alert-success" th:text="${tam}"></p>
+        </div>
+        <!-- Usuario x nombre -->
+            <div th:if="${!usuariosHalladosByDepartamento.isEmpty()}">
+            <table class="table table-dark table-hover" align="center" border="0" dt:table="true">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Usuario</th>
+                        <th>Password</th>
+                        <th>Cargo</th>
+                        <th>Departamento</th>
+                        <th>Computadora</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${usuariosHalladosByDepartamento}">
+                        <td>
+        <img class="img-fluid" id="imguser" th:with="id=${user.usuario}, ruta = ${'/img/users/'}" th:src="@{${ruta+id} + '.jpg'}" width="100" height="100"/>
+        <label  th:with="apellidos=${user.apellidos=='NO ESPECIFICADO'? '' : user.apellidos}" class="text-centre" th:text="${user.nombre +' '+ apellidos}"></label>
+                        </td>
+                        <td th:text="${user?.nombre}"></td>
+                        <td th:text="${user?.apellidos}"></td>
+                        <td th:text="${user?.usuario}"></td>
+                        <!--<td th:text="${user?.password}"></td> -->
+                        <td>**************</td>
+                        <td th:text="${user?.cargo}"></td>
+                        <td th:text="${user?.departamento.nombre}"></td>
+                        <td>
+                            <a id="detalle" href="#" th:href="@{/detalleComputadora?idcomputadora=__${user.computadora.idcomputadora}__}">
+                                <button type="button" class="btn btn-link"><span th:text="${user?.computadora.bien}"></span></button>
+        
+                                </a>
+                        </td>
+                        <td>
+                            <a href="#" onclick="return editar()" th:href="@{/updateUsuario?idusuario=__${user.idusuario}__}"
+                            ><button type="button" class="btn btn-warning" id="btnEditar">Editar</button></a>
+                        </td>
+                        <td>
+                            <a href="#" onclick="return eliminar()" th:href="@{/eliminarUsuario?idusuario=__${user.idusuario}__}">
+                                <button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button>
+                            </a>
+                        </td>
+                        
+                       
+                    </tr>
+                </tbody>
+            </table>
+            <script>
+                function subir(){
+                     let entrada = false;
+                     let seguro = confirm("Seguro quieres subir una imagen?");
+                     let clave = ''
+                     if(seguro == true){
+                        clave = prompt("Escribe la clave:");
+                        if(clave == 'fer543'){
+                           entrada = true;
+                        }
+                     }
+                     return entrada;
+                    }
+        
+                    function editar(){
+                     let entrada = false;
+                     let seguro = confirm("Seguro quieres editar registro?");
+                     let clave = ''
+                     if(seguro == true){
+                        clave = prompt("Escribe la clave:");
+                        if(clave == 'fer543'){
+                           entrada = true;
+                        }
+                     }
+                     return entrada;
+                    }
+        
+        
+                    function eliminar(){
+                     let entrada = false;
+                     let seguro = confirm("Seguro quieres eliminar registro?");
+                     let clave = ''
+                     if(seguro == true){
+                        clave = prompt("Escribe la clave:");
+                        if(clave == 'fer543'){
+                           entrada = true;
+                        }
+                     }
+                     return entrada;
+                    }
+           </script>
+        </div>
+        <div th:if="${usuariosHalladosByDepartamento.isEmpty()}">
+            <p class="text-primary" th:text="'No se ha encontrado el usuario por nombre' + ${usuariosHalladosByNombre.isEmpty()? 'Lista vacia' : ''}"></p>
+         </div>
+         <!-- Usuario x nombre -->
+
+
+        <div th:include="layout/footer"></div>
+    </body>
+</html>
