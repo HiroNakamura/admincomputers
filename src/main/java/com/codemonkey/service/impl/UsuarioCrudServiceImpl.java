@@ -51,4 +51,11 @@ public class UsuarioCrudServiceImpl implements UsuarioCrudService {
         return buscarUsuarioByComputadoraArrendadoList; 
     }
 	
+    @Override
+    public List<Usuario> buscarUsuarioByDepartamento(String departamento){
+        List<Usuario> buscarUsuarioByDepartamentoList = usuarioCrudRepository.buscarUsuarioByDepartamento(departamento);
+        LOGGER.info("--Resultado:"+buscarUsuarioByDepartamentoList.toString());
+        return buscarUsuarioByDepartamentoList;
+    }
+	
 }
