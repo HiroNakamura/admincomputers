@@ -321,6 +321,17 @@ public class ControllerProyecto{
         return "usuarioHalladoByComputadoraArrendado";
     }
 
+    /* Buscar usuario x departamento */
+    @GetMapping("/hallarUsuarioByDepartamento")
+    public String hallarUsuarioByDepartamento(@RequestParam("departamento") String departamento, Model model){
+        LOGGER.info("--Departamento a buscar: "+departamento);
+        List<Usuario> buscarUsuarioByDepartamento = usuarioCrudService.buscarUsuarioByDepartamento(departamento);
+        model.addAttribute("usuariosHalladosByDepartamento",buscarUsuarioByDepartamento);
+        model.addAttribute("mensaje","Búsqueda realizada");   
+        model.addAttribute("tam","Total de registros hallados: "+buscarUsuarioByDepartamento.size()) ;  
+        return "usuarioHalladoByDepartamento";
+    }
+
 
     /* Buscar computadora x no. bien */
     @GetMapping("/hallarComputadoraByBien")
@@ -365,6 +376,7 @@ public class ControllerProyecto{
         model.addAttribute("tamComp","Total de registros de dispositivos hallados: "+buscarComputadoraByIp.size()) ;
         return "computadoraHalladaByIp";
     }
+
 
 
     /*Ver detalle de la computadora*/
