@@ -35,11 +35,11 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="data in datos">
-                            <td>{{ data.nombre }} {{ data.apellidos }}</td>
-                            <td>{{ data.usuario }}</td>
-                            <td>{{ data.cargo }}</td>
-                            <td>{{ data.computadora.bien }} </td>
-                            <td>{{ data.departamento.nombre}}</td>
+                            <td><p contenteditable="true">{{ data.nombre }}</p> <p contenteditable="true">{{ data.apellidos }}</p></td>
+                            <td><p contenteditable="true">{{ data.usuario }}</p></td>
+                            <td><p contenteditable="true">{{ data.cargo }}</p></td>
+                            <td><p contenteditable="true">{{ data.computadora.bien }}</p> </td>
+                            <td><p contenteditable="true">{{ data.departamento.nombre}}</p></td>
                             
                         </tr>
                     </tbody>
