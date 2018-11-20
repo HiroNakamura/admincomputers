@@ -57,14 +57,14 @@
 
             <div class="">
                     <ul>
-                        <li><a class="active" href="/home">Home</a></li>
-                        <li><a href="/home"> Usuarios direcci&oacute;n</a> </li> 
-                        <li><a href="/">Usuarios sistemas</a></li>
-                        <li><a href="#home">Usuarios investigaci&oacute;n</a></li>
-                        <li><a href="#home">Usuarios evaluaci&oacute;n</a></li>
-                        <li><a href="#home">Usuarios hemeroteca</a></li>
-                        <li><a href="#home">Usuarios recursos humanos</a></li>
-                        <li><a href="#home">Usuarios diseño y comunicaci&oacute;n</a></li>
+                        <li><a class="active" th:href="@{/home}" href="#">Home</a></li>
+                        <li><a th:href="@{/hallarUsuarioByDepartamento?departamento=Direccion}" href="#" > Usuarios direcci&oacute;n</a> </li> 
+                        <li><a th:href="@{/hallarUsuarioByDepartamento?departamento=Sistemas}" href="#">Usuarios sistemas</a></li>
+                        <li><a th:href="@{/hallarUsuarioByDepartamento?departamento=Investigacion}" href="#">Usuarios investigaci&oacute;n</a></li>
+                        <li><a th:href="@{/hallarUsuarioByDepartamento?departamento=Evaluacion}" href="#">Usuarios evaluaci&oacute;n</a></li>
+                        <li><a th:href="@{/hallarUsuarioByDepartamento?departamento=Hemeroteca}" href="#">Usuarios hemeroteca</a></li>
+                        <li><a th:href="@{/hallarUsuarioByDepartamento?departamento=Recursos}" href="#">Usuarios recursos humanos</a></li>
+                        <li><a th:href="@{/hallarUsuarioByDepartamento?departamento=Diseño}" href="#">Usuarios diseño y comunicaci&oacute;n</a></li>
                     </ul>
                 </div>
 
