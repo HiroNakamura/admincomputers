@@ -11,4 +11,5 @@ public interface ComputadoraCrudService{
     public List<Computadora> computadorasByBien(String bien);
     public List<Computadora> computadorasByArrendado(String arrendado);
     public List<Computadora> computadorasByIp(String ip);
+    public List<Computadora> computadorasByDepartamento(String departamento);
 }
