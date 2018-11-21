@@ -327,7 +327,7 @@ public class ControllerProyecto{
         LOGGER.info("--Departamento a buscar: "+departamento);
         List<Usuario> buscarUsuarioByDepartamento = usuarioCrudService.buscarUsuarioByDepartamento(departamento);
         model.addAttribute("usuariosHalladosByDepartamento",buscarUsuarioByDepartamento);
-        model.addAttribute("mensaje","Búsqueda realizada");   
+        model.addAttribute("mensaje","Búsqueda realizada:"+departamento);   
         model.addAttribute("tam","Total de registros hallados: "+buscarUsuarioByDepartamento.size()) ;  
         return "usuarioHalladoByDepartamento";
     }
