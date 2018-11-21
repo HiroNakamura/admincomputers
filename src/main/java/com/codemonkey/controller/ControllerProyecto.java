@@ -333,6 +333,21 @@ public class ControllerProyecto{
     }
 
 
+
+    /* Buscar computadora x departamento */
+    @GetMapping("/hallarComputadoraByDepartamento")
+    public String hallarComputadoraByDepartamento(@RequestParam("departamento") String departamento, Model model){
+        LOGGER.info("--Departamento a buscar: "+departamento);
+        List<Computadora> buscarComputadoraByDepartamento = computadoraCrudService.computadorasByDepartamento(departamento);
+        model.addAttribute("computadorasHalladasByDepartamento",buscarComputadoraByDepartamento);
+        model.addAttribute("mensaje","Búsqueda realizada:"+departamento);   
+        model.addAttribute("tam","Total de registros hallados: "+buscarComputadoraByDepartamento.size()) ;  
+        return "computadoraHalladaByDepartamento";
+    }
+
+
+
+
     /* Buscar computadora x no. bien */
     @GetMapping("/hallarComputadoraByBien")
     public String hallarComputadoraByBien(@RequestParam("bien") String bien, Model model){
