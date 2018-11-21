@@ -9,16 +9,16 @@ import com.codemonkey.entity.Usuario;
 
 public interface UsuarioCrudRepository extends CrudRepository<Usuario, Long>{
 
-    @Query(value="SELECT public.usuario.idusuario, public.usuario.apellidos, public.usuario.cargo, public.usuario.nombre, public.usuario.password, public.usuario.usuario,public.usuario.iddepartamento , public.usuario.idcomputadora FROM public.usuario WHERE public.usuario.nombre LIKE %?1% ",nativeQuery=true)
+    @Query(value="SELECT distinct public.usuario.idusuario, public.usuario.apellidos, public.usuario.cargo, public.usuario.nombre, public.usuario.password, public.usuario.usuario,public.usuario.iddepartamento , public.usuario.idcomputadora FROM public.usuario WHERE public.usuario.nombre LIKE %?1% ",nativeQuery=true)
     public List<Usuario> buscarUsuarioByNombre(String nombre);
 
-    @Query(value="SELECT public.usuario.idusuario, public.usuario.apellidos, public.usuario.cargo, public.usuario.nombre, public.usuario.password, public.usuario.usuario,public.usuario.iddepartamento , public.usuario.idcomputadora FROM public.usuario WHERE public.usuario.usuario LIKE %?1% ",nativeQuery=true)
+    @Query(value="SELECT distinct public.usuario.idusuario, public.usuario.apellidos, public.usuario.cargo, public.usuario.nombre, public.usuario.password, public.usuario.usuario,public.usuario.iddepartamento , public.usuario.idcomputadora FROM public.usuario WHERE public.usuario.usuario LIKE %?1% ",nativeQuery=true)
     public List<Usuario> buscarUsuarioByUsuario(String usuario);
 
-    @Query(value="SELECT public.usuario.idusuario, public.usuario.apellidos, public.usuario.cargo, public.usuario.nombre, public.usuario.password, public.usuario.usuario, public.usuario.idcomputadora, public.usuario.iddepartamento, public.computadora.bien, public.computadora.arrendado FROM public.usuario, public.computadora WHERE public.usuario.idcomputadora=public.computadora.idcomputadora AND public.computadora.bien LIKE %?1% ",nativeQuery=true)
+    @Query(value="SELECT distinct public.usuario.idusuario, public.usuario.apellidos, public.usuario.cargo, public.usuario.nombre, public.usuario.password, public.usuario.usuario, public.usuario.idcomputadora, public.usuario.iddepartamento, public.computadora.bien, public.computadora.arrendado FROM public.usuario, public.computadora WHERE public.usuario.idcomputadora=public.computadora.idcomputadora AND public.computadora.bien LIKE %?1% ",nativeQuery=true)
     public List<Usuario> buscarUsuarioByComputadoraBien(String computadora);
 
-    @Query(value="SELECT public.usuario.idusuario, public.usuario.apellidos, public.usuario.cargo, public.usuario.nombre, public.usuario.password, public.usuario.usuario, public.usuario.idcomputadora, public.usuario.iddepartamento, public.computadora.bien, public.computadora.arrendado FROM public.usuario, public.computadora WHERE public.usuario.idcomputadora=public.computadora.idcomputadora AND public.computadora.arrendado LIKE %?1% ",nativeQuery=true)
+    @Query(value="SELECT distinct public.usuario.idusuario, public.usuario.apellidos, public.usuario.cargo, public.usuario.nombre, public.usuario.password, public.usuario.usuario, public.usuario.idcomputadora, public.usuario.iddepartamento, public.computadora.bien, public.computadora.arrendado FROM public.usuario, public.computadora WHERE public.usuario.idcomputadora=public.computadora.idcomputadora AND public.computadora.arrendado LIKE %?1% ",nativeQuery=true)
     public List<Usuario> buscarUsuarioByComputadoraArrendado(String computadora);
 
     @Query(value="SELECT distinct emp.idusuario, emp.nombre, emp.apellidos, emp.cargo,emp.usuario, emp.password, emp.idcomputadora, emp.iddepartamento , dpto.nombre as area, comp.bien, comp.arrendado FROM public.usuario as emp, public.computadora as comp, public.departamento as dpto WHERE emp.iddepartamento = dpto.iddepartamento AND emp.idcomputadora = comp.idcomputadora AND dpto.nombre like %?1% ",nativeQuery=true)
