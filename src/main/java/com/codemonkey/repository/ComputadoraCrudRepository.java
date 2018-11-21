@@ -24,4 +24,9 @@ public interface ComputadoraCrudRepository extends CrudRepository<Computadora, L
     @Query(value="SELECT idcomputadora, actualizada, administrador, arrendado, asignado, bien, departamento, dns, dominio, ip, maquina, modelo, operativo, red, tipo, ubicacion, dispositivo, estado FROM public.computadora WHERE public.computadora.ip LIKE %?1% ",nativeQuery=true)
     public List<Computadora> computadorasByIp(String ip);
 
+
+    @Query(value="SELECT distinct emp.nombre, emp.apellidos, emp.cargo, dpto.nombre as area, comp.idcomputadora, comp.bien, comp.arrendado, comp.asignado, comp.administrador, comp.departamento, comp.dns, comp.ip, comp.maquina, comp.modelo, comp.operativo, comp.red, comp.tipo, comp.ubicacion, comp.actualizada, comp.dispositivo, comp.estado FROM public.usuario as emp, public.computadora as comp, public.departamento as dpto WHERE emp.iddepartamento = dpto.iddepartamento AND emp.idcomputadora = comp.idcomputadora AND dpto.nombre like %?1%  ",nativeQuery=true)
+    public List<Computadora> computadorasByDepartamento(String departamento);
+    
+
 }
