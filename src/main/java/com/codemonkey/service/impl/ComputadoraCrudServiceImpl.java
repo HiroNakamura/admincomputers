@@ -49,7 +49,11 @@ public class ComputadoraCrudServiceImpl implements ComputadoraCrudService {
     public List<Computadora> computadorasByIp(String ip){
         return computadoraCrudRepository.computadorasByIp(ip);
     }
-
+	
+    @Override
+    public List<Computadora> computadorasByDepartamento(String departamento){
+        return computadoraCrudRepository.computadorasByDepartamento(departamento);
+    }
 
 
 }
