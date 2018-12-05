@@ -34,5 +34,5 @@ public class Equipo implements java.io.Serializable{
 
     @ManyToOne
     @JoinColumn(name="empleado_nombre")
-    private Empleado empleado;
+    @Getter @Setter private Empleado empleado;
 }
