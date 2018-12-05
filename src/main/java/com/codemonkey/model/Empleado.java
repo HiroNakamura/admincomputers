@@ -38,7 +38,7 @@ public class Empleado implements java.io.Serializable{
 
     @ManyToOne
     @JoinColumn(name="area_nombre")
-    private Area area;
+    @Getter @Setter private Area area;
 
   
 }
