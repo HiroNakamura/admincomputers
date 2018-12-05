@@ -29,7 +29,7 @@ public class Empleado implements java.io.Serializable{
 
     @OneToMany(mappedBy="empleado" ) //(fetch = FetchType.LAZY, mappedBy="empleado" )
     @ElementCollection(targetClass=Equipo.class)
-    private java.util.List<Equipo> equipos;
+    @Getter @Setter private java.util.List<Equipo> equipos;
 
     @Column(name="nombre")
     @Getter @Setter private String nombre;
